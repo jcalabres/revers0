@@ -11,6 +11,7 @@ enableRobotsTXT = true
 canonifyURLs = true
 
 [params]
+  description = "Welcome to verso.re :)"
   contentTypeName = "posts"
   defaultTheme = "dark"
   showMenuItems = 6
