@@ -16,3 +16,7 @@ TEMPLATE:
 - https://fazi1058.github.io **Faezeh Roeinfard** (Student)
 - https://www.gabrielacaesar.com/ - **Gabriela Caesar** (Data journalist)
 - https://verso.re/ - **Joan Calabrés** (Security Engineer)
+- https://blog.lepape.me/ - **François Le Pape** (Student & developer freelance)
+- https://blog.jyny.dev/ - **Jyny Chen** (Software Engineer)
+- https://felixleger.com/ - **Félix Léger** (Sofware Developer and DevOps)
+- https://cobalto.net/ - **Daniel Pessoa** (Sofware Developer and BI Analyst)
