@@ -13,8 +13,7 @@ canonifyURLs=true
 [params]
   author="Joan Calabrés"
   title = "verso.re"
-  subtitle = "Reverse All The Things!"
-  description="Malware Analysis and RE blog."
+  description="RE and Malware Analysis blog."
   contentTypeName="posts"
   defaultTheme="dark"
   showMenuItems=6
