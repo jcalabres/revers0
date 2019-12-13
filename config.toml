@@ -12,6 +12,8 @@ canonifyURLs=true
 
 [params]
   author="Joan Calabrés"
+  title = "verso.re"
+  subtitle = "Reverse All The Things!"
   description="Welcome to verso.re :)"
   contentTypeName="posts"
   defaultTheme="dark"
@@ -20,8 +22,6 @@ canonifyURLs=true
 
 [languages]
   [languages.en]
-    title = "verso.re"
-    subtitle = "Reverse All The Things!"
     keywords = "malware analysis, reverse engineering, mobile security, android, ghidra"
     menuMore = "Show more"
     writtenBy = "Written by"
