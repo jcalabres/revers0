@@ -12,8 +12,9 @@ canonifyURLs=true
 
 [params]
   author="Joan Calabrés"
-  title = "verso.re"
-  description="RE and Malware Analysis blog."
+  title="verso.re"
+  subtitle="verso.re"
+  description="A Malware Analysis blog ®"
   contentTypeName="posts"
   defaultTheme="dark"
   showMenuItems=6
@@ -21,21 +22,21 @@ canonifyURLs=true
 
 [languages]
   [languages.en]
-    keywords = "malware analysis, reverse engineering, mobile security, android, ghidra"
-    menuMore = "Show more"
-    writtenBy = "Written by"
-    readMore = "Read more"
-    readOtherPosts = "Read other posts"
-    newerPosts = "Newer posts"
-    olderPosts = "Older posts"
-    minuteReadingTime = "min read"
-    dateFormatSingle = "01-02-2006"
-    dateFormatList = "01-02-2006"
+    keywords="malware analysis, reverse engineering, mobile security, android, ghidra"
+    menuMore="Show more"
+    writtenBy="Written by"
+    readMore="Read more"
+    readOtherPosts="Read other posts"
+    newerPosts="Newer posts"
+    olderPosts="Older posts"
+    minuteReadingTime="min read"
+    dateFormatSingle="01-02-2006"
+    dateFormatList="01-02-2006"
     [languages.en.params.logo]
-      logoText = "./verso.re"
-      logoHomeLink = "/"
+      logoText="./verso.re"
+      logoHomeLink="/"
     [languages.en.menu]
       [[languages.en.menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/about"
+        identifier="about"
+        name="About"
+        url="/about"
