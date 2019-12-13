@@ -1,27 +1,28 @@
-baseurl = "https://www.verso.re/"
-googleAnalytics = "UA-147436221-1"
+baseurl="https://www.verso.re/"
+googleAnalytics="UA-147436221-1"
 
-languageCode = "en-us"
-DefaultContentLanguage = "en"
+languageCode="en-us"
+DefaultContentLanguage="en"
+paginate=6
 
-theme = "hello-friend"
-paginate = 6
-
-enableRobotsTXT = true
-canonifyURLs = true
+theme="hello-friend"
+enableEmoji=true
+enableRobotsTXT=true
+canonifyURLs=true
 
 [params]
-  description = "Welcome to verso.re :)"
-  contentTypeName = "posts"
-  defaultTheme = "dark"
-  showMenuItems = 6
-  showReadingTime = false
+  author="Joan Calabrés"
+  description="Welcome to verso.re :)"
+  contentTypeName="posts"
+  defaultTheme="dark"
+  showMenuItems=6
+  showReadingTime=false
 
 [languages]
   [languages.en]
     title = "verso.re"
     subtitle = "Reverse All The Things!"
-    keywords = "reverse engineering, mobile security, android, ghidra"
+    keywords = "malware analysis, reverse engineering, mobile security, android, ghidra"
     menuMore = "Show more"
     writtenBy = "Written by"
     readMore = "Read more"
@@ -31,13 +32,10 @@ canonifyURLs = true
     minuteReadingTime = "min read"
     dateFormatSingle = "01-02-2006"
     dateFormatList = "01-02-2006"
-
     [languages.en.params.logo]
       logoText = "./verso.re"
       logoHomeLink = "/"
-
     [languages.en.menu]
-
       [[languages.en.menu.main]]
         identifier = "about"
         name = "About"

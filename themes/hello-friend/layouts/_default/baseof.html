@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.Language }}">
   <head>
+
+	<meta property="og:site_name" content="Site name"/>
+	<meta property="og:description" content="{{ $.Site.Params.description }}" />
+	<meta property="og:image" content="Link to your logo" />
+
     {{ block "title" . }}
       <title>{{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ else }}{{ .Title }} :: {{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}</title>
     {{ end }}
