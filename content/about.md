@@ -6,13 +6,11 @@ author = "Joan Calabrés"
 
 Hi there,
 
-My name is Joan Calabrés and I'm the author of this blog. I work as a Reverse Engineer on an IT Laboratory.
+My name is Joan Calabrés and I'm the author of this blog. I work as a Security Engineer on an IT Company.
 
-I'm focused on Mobile Security, most of the time in Android Application Security.
+I'm focused on Android Malware Analysis.
 
-I made this blog to expose different articles about reverse engineering.
-
-Enjoy and have a nice reversing day!
+I made this blog to expose different articles about Android Malware and RE.
 
 *If you want to support me and my blog you can donate.*
 
