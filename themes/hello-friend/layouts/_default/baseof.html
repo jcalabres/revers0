@@ -4,7 +4,7 @@
 
 	<meta property="og:site_name" content="{{ $.Site.Params.title }}"/>
 	<meta property="og:description" content="{{ $.Site.Params.description }}" />
-	<meta property="og:image" content="static/favicon-32x32.png" />
+	<meta property="og:image" content="/static/favicon-32x32.png" />
 
     {{ block "title" . }}
       <title>{{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ else }}{{ .Title }} :: {{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}</title>
