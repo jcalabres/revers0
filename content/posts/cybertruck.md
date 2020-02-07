@@ -1,5 +1,5 @@
 +++ 
-title = "CyberTruckChallenge" 
+title = "CyberTruckChallenge 19" 
 date = "2019-08-09" 
 author = "Joan Calabrés"  
 description = "Oh my god, hacking cars... never too easy!" 
