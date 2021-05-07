@@ -14,7 +14,7 @@ canonifyURLs=true
   author="Joan Calabrés"
   title="verso.re"
   subtitle="verso.re"
-  description="Android RE and Malware Analysis Stuff."
+  description="Mobile Security Blog"
   contentTypeName="posts"
   defaultTheme="dark"
   showMenuItems=6
@@ -22,7 +22,7 @@ canonifyURLs=true
 
 [languages]
   [languages.en]
-    keywords="malware analysis, reverse engineering, mobile security, android, ghidra"
+    keywords="mobile security, reverse engineering, malware analysis, android, ios, ida, ghidra, frida, exploiting, ARM"
     menuMore="Show more"
     writtenBy="Written by"
     readMore="Read more"
@@ -40,7 +40,3 @@ canonifyURLs=true
         identifier="about"
         name="About"
         url="/about"
-      [[languages.en.menu.main]]
-        identifier="workshop"
-        name="Android RE Workshop"
-        url="/workshop"
