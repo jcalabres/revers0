@@ -10,4 +10,4 @@ My name is Joan Calabrés and I'm the author of this blog. I work as a Security 
 
 During my professional career I've been doing reverse engineering on mobile applications and malware. 
 
-I made this blog to expose interesting stuff about reverse engineering and security in general.
+I made this blog to expose interesting stuff about cybersecurity and reverse engineering.
