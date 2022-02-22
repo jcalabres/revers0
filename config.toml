@@ -12,17 +12,17 @@ canonifyURLs=true
 
 [params]
   author="Joan Calabrés"
-  title="verso.re"
-  subtitle="verso.re"
+  title="reverso"
+  subtitle="reverso"
   description=""
   contentTypeName="posts"
-  defaultTheme="dark"
+  defaultTheme="white"
   showMenuItems=6
   showReadingTime=false
 
 [languages]
   [languages.en]
-    keywords="mobile security, reverse engineering, malware analysis, android, ios, ida, ghidra, frida, exploiting, ARM"
+    keywords="reverse engineering, malware analysis, mobile security, IOT security, android, ghidra, frida"
     menuMore="Show more"
     writtenBy="Written by"
     readMore="Read more"
@@ -33,7 +33,7 @@ canonifyURLs=true
     dateFormatSingle="01-02-2006"
     dateFormatList="01-02-2006"
     [languages.en.params.logo]
-      logoText="./verso.re"
+      logoText="./reverso"
       logoHomeLink="/"
     [languages.en.menu]
       [[languages.en.menu.main]]
