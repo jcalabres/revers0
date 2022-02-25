@@ -12,7 +12,7 @@ During my professional career I've been doing multiple cibersecurity projects, m
 
 As a Cybersecurity professional, I always think we are a non-ending learners, eternal apprentices. This blog is focused on cybersecurity learning using the KISS (Keep it simple, stupid) philosophy.
 
-The content exposed is related with my personal cybersecurity interests, with the main objective of creating an easy way of learning and exposing cybersecurity to everyone.  
+The content of this blog is related with my personal cybersecurity interests, with the main objective of exposing cybersecurity to everyone.  
 
 Have a fun and healthy hacking :)!
 
