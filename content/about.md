@@ -6,8 +6,14 @@ author = "Joan Calabrés"
 
 Hi there,
 
-My name is Joan Calabrés and I'm the author of this blog. I work as a Cybersecurity Analyst on a cibersecurity laboratory.
+My name is Joan Calabrés, I'm the author of this blog and I work as a Cybersecurity Analyst on a cibersecurity laboratory.
 
-During my professional career I've been doing reverse engineering on mobile applications and malware. 
+During my professional career I've been doing multiple cibersecurity projects, mostly related with reverse engineering on mobile applications and mobile malware.
 
-I made this blog to expose interesting stuff about cybersecurity and reverse engineering.
+As a Cybersecurity professional, I always think we are a non-ending learners, eternal apprentices. This blog is focused on cybersecurity learning using the KISS (Keep it simple, stupid) philosophy.
+
+The content exposed is related with my personal cybersecurity interests, with the main objective of creating an easy way of learning and exposing cybersecurity to everyone.  
+
+Have a fun and healthy hacking :)!
+
+JCalabrés
