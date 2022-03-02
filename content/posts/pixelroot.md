@@ -74,8 +74,6 @@ INIT_CRED_OFFSET
 OFFSET_PIPE_FOP
 ```
 
-
-
 4. Change exploit.c offsets for the offsets found in your device kernel image:
 
 ```c
@@ -90,9 +88,7 @@ OFFSET_PIPE_FOP
 
 ## Testing the exploit 
 
-*The exploit can be built by simply running "make" with the Android NDK in the path. It can also be pushed to a phone attached with adb by doing "make all push"*
-
-*Now just run /data/local/tmp/poc from an adb shell to see the exploit running:*
+>The exploit can be built by simply running "make" with the Android NDK in the path. It can also be pushed to a phone attached with adb by doing "make all push". Now just run /data/local/tmp/poc from an adb shell to see the exploit running:
 
 ```
 [+] Mapped 200000
