@@ -3,6 +3,8 @@ title = "CyberTruckChallenge 19"
 date = "2019-09-08" 
 author = "Joan Calabrés"  
 description = "Oh my god, hacking cars... never too easy!" 
+cover = "img/cybertruck/cybertruck-challenge.png"
+useRelativeCover = true
 +++
 
 Hello, in this post I'll show you <a href="https://gist.github.com/jcalabres/f90c601d4f02874f34f6974e657ae3f5">my solutions</a> for the CyberTruckChallenge of 2019. 
@@ -13,11 +15,14 @@ The <a href="https://github.com/nowsecure/cybertruckchallenge19">CyberTruckChall
 *note: the challenges presented in this post are for beginners, however; if you don't have a basic knowledge about mobile RE, this is not pretended to be a tutorial.*
 
 ## Table of Contents
-1. [Description](#description)
-2. [First Steps](#first_steps)
-3. [Challenge 1](#challenge1)
-4. [Challenge 2](#challenge2)
-4. [Challenge 3](#challenge3)
+- [Table of Contents](#table-of-contents)
+- [Description](#description)
+- [Tools](#tools)
+- [First Steps](#first-steps)
+- [Countermeasures](#countermeasures)
+- [Challenge 1](#challenge-1)
+- [Challenge 2](#challenge-2)
+- [Challenge 3](#challenge-3)
 
 <a name="description">
 ## Description
