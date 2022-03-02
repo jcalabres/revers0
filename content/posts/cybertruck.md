@@ -3,8 +3,6 @@ title = "CyberTruckChallenge 19"
 date = "2019-09-08" 
 author = "Joan Calabrés"  
 description = "Oh my god, hacking cars... never too easy!" 
-cover = "img/cybertruck/cybertruck-challenge.png"
-useRelativeCover = true
 +++
 
 Hello, in this post I'll show you <a href="https://gist.github.com/jcalabres/f90c601d4f02874f34f6974e657ae3f5">my solutions</a> for the CyberTruckChallenge of 2019. 
