@@ -149,7 +149,7 @@ Finding on the Internet I found the issue: *you need to patch the security conte
 During the exploit execution the process executed need to be patched with the correct security context for the root user. The next function is used to patch the credentials of a specific address:
 
 
-{{< code language="bash" title="Patching task credentials" id="2" expand="Show" collapse="Hide" isCollapsed="true" >}}
+{{< code language="c" title="Patching task credentials" id="2" expand="Show" collapse="Hide" isCollapsed="true" >}}
 void patch_task_cred(uint64_t cred_addr, uint32_t init_sid)
 {
     uint64_t val;
