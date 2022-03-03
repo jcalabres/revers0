@@ -7,14 +7,14 @@ description = "Adapting the CVE-2020-0041 privilege escalation exploit for Pixel
 
 There are different root frameworks that can be used on Android in order to obtain root privileges. Usually, during Android application security evaluations, root detection is tested in different ways. Application countermeasures such as root detection are easy to bypass in most of the Android applications and sometimes without the use of reverse engineering techniques; however, as I've been seen during the analysis of banking applications, bypassing root detection on these applications can be hard and time consuming due high obfuscation and countermeasures applied.
 
-A common procedure in the industry is the adaptation of privilege escalation exploits that are not detectable by most of the applications. In this post I will explain how to adapt [bluefrostsecurity](https://labs.bluefrostsecurity.de/blog/2020/04/08/cve-2020-0041-part-2-escalating-to-root/) **CVE-2020-0041** PoC for Pixel 3 to all the Pixel3 family devices. Furthermore, I will provide some improvements to obtain a non-limited root shell. 
+A common procedure in the industry is the adaptation of privilege escalation exploits that are not detectable by most of the applications. In this post I will explain how to adapt [bluefrostsecurity](https://labs.bluefrostsecurity.de/blog/2020/04/08/cve-2020-0041-part-2-escalating-to-root/) **CVE-2020-0041** PoC for Pixel 3 to all the Pixel3 family devices. Furthermore, I will provide an improvement to obtain a non-limited root shell. 
 
 ## Table of Contents
 - [Table of Contents](#table-of-contents)
 - [Requirements](#requirements)
-- [Procedure](#procedure)
+- [Adapting the exploit](#adapting-the-exploit)
 - [Testing the exploit](#testing-the-exploit)
-- [Improvements](#improvements)
+- [Issues & improvements](#issues-&-improvements)
 
 ## Requirements
 
@@ -53,7 +53,7 @@ sudo pip3 install --upgrade lz4 git+https://github.com/marin-m/vmlinux-to-elf
 export NDK="/home/calabres/NDK"
 ```
 
-## Procedure
+## Adapting the exploit
 
 1. First of all we need to extract the compressed kernel image from the boot.img. For that, we will use the already downloaded tool **abootimg**.
 
@@ -140,9 +140,7 @@ Permissive
 root_by_cve-2020-0041:/ # 
 {{< /code >}}
 
-## Improvements
-
-## Issues and improvements
+## Issues & improvements
 
 After the adaptation of the exploit and its execution, you will obtain a root shell; however, this root shell is very limited and you will have some problems executing binaries and creating files. 
 
