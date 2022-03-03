@@ -22,14 +22,12 @@ The <a href="https://github.com/nowsecure/cybertruckchallenge19">CyberTruckChall
 - [Challenge 2](#challenge-2)
 - [Challenge 3](#challenge-3)
 
-<a name="description">
-
 ## Description
 
 *"A new mobile remote keyless system "CyberTruck" has been implemented by one of the most well-known car security companies "NowSecure Mobile Vehicles". The car security company has ensured that the system is entirely uncrackable and therefore attackers will not be able to recover secrets within the mobile application.*
 
 *If you are an experienced Android reverser, then enable the tamperproof button to harden the application before unlocking your cars. Your goal will consist on recovering up to 6 secrets in the application."*
-</a>
+
 
 ## Tools
 
@@ -40,6 +38,7 @@ The main tools needed for these solutions are listed below:
 * <a href="https://ghidra-sre.org">**Ghidra**</a> 
 
 <a name="first_steps">
+
 ## First Steps
 
 This challenge is presented as an APK. The first task of a reverse engineer consists to have knowledge about the target. First we'll need to install the application in our Android device **(API=>24)**. In my case I'm using the **Android Studio Emulator** with a x86 developer ROM that comes with root permissions.
@@ -70,6 +69,7 @@ android:name="org.nowsecure.cybertruck.MainActivity"
 ```
 
 Having this information in our hand we can decompile the MainActivity in order to know the implementation of the program. In the OnCreate method of the activity different listeners for the multiple buttons are set up.
+</a>
 
 ## Countermeasures
 
