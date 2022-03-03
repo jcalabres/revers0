@@ -19,7 +19,7 @@ canonifyURLs=true
   defaultTheme="white"
   showMenuItems=6
   showReadingTime=false
-  lastModDisplay = "Modified:"
+  lastModDisplay = "Modified: 01 Jan, 0001"
 
 [languages]
   [languages.en]
