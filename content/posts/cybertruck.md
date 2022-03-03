@@ -23,6 +23,7 @@ The <a href="https://github.com/nowsecure/cybertruckchallenge19">CyberTruckChall
 - [Challenge 3](#challenge-3)
 
 <a name="description">
+
 ## Description
 
 *"A new mobile remote keyless system "CyberTruck" has been implemented by one of the most well-known car security companies "NowSecure Mobile Vehicles". The car security company has ensured that the system is entirely uncrackable and therefore attackers will not be able to recover secrets within the mobile application.*
