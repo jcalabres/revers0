@@ -37,8 +37,6 @@ The main tools needed for these solutions are listed below:
 * <a href="https://github.com/skylot/jadx">**jadx**</a> 
 * <a href="https://ghidra-sre.org">**Ghidra**</a> 
 
-<a name="first_steps">
-
 ## First Steps
 
 This challenge is presented as an APK. The first task of a reverse engineer consists to have knowledge about the target. First we'll need to install the application in our Android device **(API=>24)**. In my case I'm using the **Android Studio Emulator** with a x86 developer ROM that comes with root permissions.
@@ -69,7 +67,6 @@ android:name="org.nowsecure.cybertruck.MainActivity"
 ```
 
 Having this information in our hand we can decompile the MainActivity in order to know the implementation of the program. In the OnCreate method of the activity different listeners for the multiple buttons are set up.
-</a>
 
 ## Countermeasures
 
@@ -136,9 +133,7 @@ We'll need to load our Frida script to our Android device or emulator. After tha
 ```bash
 frida -Uf org.nowsecure.cybertruck -l truck.js
 ```
-</a>
 
-<a name="challenge1">
 ## Challenge 1
 
 In the MainActivity we can see that the listener for the button that unlocks the cars is calling the k function. The k function calls the class that have the secrets of our **Challenge1**.
@@ -179,9 +174,7 @@ As the code states, we're printing our key in hexadecimal format. but we're not 
 [SECRET1] s3cr3t$_n3veR_mUst_bE_h4rdc0d3d_m4t3!
 [SECRET2] 046e04ff67535d25dfea022033fcaaf23606b95a5c07a8c6
 ```
-</a>
 
-<a name="challenge2">
 ## Challenge 2
 
 In the same package as the **Challenge1** class, we can find another class called a. If we decompile this class we'll see that the constructor it's calling another constructor that is using a hardcoded key inside a file. The implementation will use the key extracted from the file and a String to cipher in order to generate our token.
@@ -231,9 +224,7 @@ Stated below are the two secrets of this challenge and the three and four of the
 [SECRET3] d474_47_r357_mu57_pR073C73D700!!
 [SECRET4] 512100f7cc50c76906d23181aff63f0d642b3d947f75d360b6b15447540e4f16
 ```
-</a>
 
-<a name="challenge3">
 ## Challenge 3
 
 The last challenge is performed on native layer. It's loaded in the MainActivity through **System.loadLibrary** function.
@@ -286,4 +277,3 @@ Stated below are the two secrets of this challenge and two final ones.
 [SECRET5] Native_c0d3_1s_h4rd3r_To_r3vers3
 [SECRET6] backd00r$Mu$tAlw4ysBeF0rb1dd3n$$
 ```
-</a>
