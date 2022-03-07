@@ -1,6 +1,6 @@
 +++ 
 title = "IoT Goat Solutions " 
-date = "2022-02-27" 
+date = "2022-03-07" 
 author = "Joan Calabrés"  
 description = "Solutions to OWASP IoT Goat." 
 +++
