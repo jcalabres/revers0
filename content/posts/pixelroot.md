@@ -61,7 +61,7 @@ export NDK="/home/calabres/NDK"
 ./abootimg -x [path_to_boot_img]
 ```
 
-The produced zImage, is an image that contains the compressed Android Kernel.
+The produced **zImage**, is an image that contains the compressed Android Kernel.
 
 2. In order to obtain an uncompressed image of the Kernel that contains correct symbols and offsets, use the [vmlinux-to-elf](https://github.com/marin-m/vmlinux-to-elf) tool.
 
