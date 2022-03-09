@@ -45,7 +45,7 @@ This challenge is presented as an APK. The first task of a reverse engineer cons
 adb install cybertruck19.apk
 ```
 
-<img src="/posts/images/cybertruck/cybertruck.png" alt="CyberTruck APK" style="float:left;height:400px;margin:0 20px 10px 0">
+<img src="/posts/images/cybertruck.png" alt="CyberTruck APK" style="float:left;height:400px;margin:0 20px 10px 0">
 
 In the image we can see that the application is very simple. We've a button to unlock all the cars, we can suppose that using this button, different cryptographic keys are used to unlock each one of the 3 cars. 
 
