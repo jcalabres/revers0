@@ -248,7 +248,7 @@ Watching the different functions of the binary we can state the main function of
 
 In this case we need to Intercept a offset of the main function that is performing the arithmetic operations. 
 
-<img src="img/cybertruck/flow.png" alt="Native Flow" style="height:400px;margin:0 20px 10px 0">
+<img src="/posts/flow.png" alt="Native Flow" style="height:400px;margin:0 20px 10px 0">
 
 With the help of Frida we'll obtain the base image address in order to add the XOR instruction address and do all the operations to get the secret.
 
