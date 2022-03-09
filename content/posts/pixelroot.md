@@ -142,7 +142,7 @@ root_by_cve-2020-0041:/ #
 
 I use to run [rootbeer](https://play.google.com/store/apps/details?id=com.scottyab.rootbeer.sample&hl=es_419&gl=US) sample app for a fast root detection test. Despite this third party library is not using the same detection methods as banking applications is a good way to get an idea of how much is hidden your rooted device. 
 
-<img src="posts/img/pixelroot/rootbeer.png" alt="rootbeer root detection" style="height:200px;margin:0 20px 10px 0">
+<img class="special-img-class" src="/posts/img/pixelroot/rootbeer.png" alt="rootbeer root detection" style="height:200px;margin:0 20px 10px 0">
 
 ## Issues & improvements
 
