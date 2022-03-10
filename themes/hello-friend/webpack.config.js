@@ -1,14 +1,12 @@
-const Webpack = require("webpack");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 const path = require("path");
 
 const join = (...paths) => path.join(__dirname, ...paths);
 
-module.exports = (env, { mode, watch }) => ({
+module.exports = (env, { mode }) => ({
   resolve: {
     extensions: [".js", ".css"],
     modules: ["assets", "node_modules"],
@@ -23,7 +21,6 @@ module.exports = (env, { mode, watch }) => ({
     path: join("static/assets"),
     publicPath: "",
   },
-  watch,
   performance: {
     hints: false,
   },
@@ -40,28 +37,18 @@ module.exports = (env, { mode, watch }) => ({
         },
       },
       {
-        test: /\.(png|jpg|svg)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: "images",
-            },
-          },
-        ],
+        test: /\.(png|jpe?g|svg)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "images/[name][ext]",
+        },
       },
       {
         test: /\.(woff|woff2|ttf|eot)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: "fonts",
-            },
-          },
-        ],
+        type: "asset/resource",
+        generator: {
+          filename: "fonts/[name][ext]",
+        },
       },
       {
         test: /\.css$/,
@@ -79,11 +66,6 @@ module.exports = (env, { mode, watch }) => ({
           },
           {
             loader: "postcss-loader",
-            options: {
-              config: {
-                path: "postcss.config.js",
-              },
-            },
           },
         ],
       },
@@ -94,21 +76,18 @@ module.exports = (env, { mode, watch }) => ({
       name: "vendor",
       minChunks: 2,
     },
+    minimize: true,
     minimizer: [
-      new UglifyJsPlugin({
-        sourceMap: true,
+      new TerserPlugin({
+        parallel: true,
+        extractComments: false,
       }),
     ],
   },
   plugins: [
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [join("static/assets")],
-      cleanAfterEveryBuildPatterns: [
-        "!images/**/*",
-        "!fonts/**/*",
-        // Remove unused file for a production build.
-        mode === "production" && join("static/assets/style.js"),
-      ],
+      cleanAfterEveryBuildPatterns: [join("static/assets/style.js")],
       verbose: true,
     }),
     new MiniCssExtractPlugin({
