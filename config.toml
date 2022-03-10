@@ -1,20 +1,13 @@
 baseurl="https://www.versore.netlify.app"
-googleAnalytics="UA-147436221-1"
-
+theme="hello-friend"
 languageCode="en-us"
-DefaultContentLanguage="en"
 paginate=6
 
-theme="hello-friend"
-enableEmoji=true
+googleAnalytics="UA-147436221-1"
 enableRobotsTXT=true
 canonifyURLs=true
 
 [params]
-  author="Joan Calabrés"
-  title="reverso"
-  subtitle="reverso"
-  description=""
   contentTypeName="posts"
   defaultTheme="white"
   showMenuItems=6
@@ -22,6 +15,8 @@ canonifyURLs=true
 
 [languages]
   [languages.en]
+    title="reverso"
+    subtitle="hexorcism made easy"
     keywords="reverse engineering, malware analysis, mobile security, IOT security, android, ghidra, frida"
     menuMore="Show more"
     writtenBy="Written by"

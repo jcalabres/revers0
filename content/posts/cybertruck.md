@@ -45,7 +45,7 @@ This challenge is presented as an APK. The first task of a reverse engineer cons
 adb install cybertruck19.apk
 ```
 
-<img src="/posts/images/cybertruck.png" alt="CyberTruck APK" style="float:left;height:400px;margin:0 20px 10px 0">
+{{< image src="/posts/img/cybertruck/cybertruck.png" alt="CyberTruck APK" style="margin: 0px 10px 10px 0px;float: left;border-radius: 8px;height: 550px;">}}
 
 In the image we can see that the application is very simple. We've a button to unlock all the cars, we can suppose that using this button, different cryptographic keys are used to unlock each one of the 3 cars. 
 
@@ -56,9 +56,6 @@ The challenge rules specify that the **TamperProof** protection needs to be acti
 The main objective now is to deactivate the tamper protection and use **Frida** to hook the different sensitive functions that carries the cryptographic keys.
 
 We can use an Android Decompiler to recover a human-readable **Smali/Java code**. I'm using a private and expensive option called JEB, but you can use a free Decompiler like **jadx**.
-
-
-<img src="img/cybertruck/packages.png" alt="Packages" style="float:left;height:200px;margin:0 20px 10px 0">
 
 If we read the manifest file of the Android Application we can state the first entry of the application.
 
@@ -248,7 +245,7 @@ Watching the different functions of the binary we can state the main function of
 
 In this case we need to Intercept a offset of the main function that is performing the arithmetic operations. 
 
-<img src="/content/posts/flow.png" alt="Native Flow" style="height:400px;margin:0 20px 10px 0">
+{{< image src="/posts/img/cybertruck/flow.png" alt="Native flow"  style="border-radius: 8px;height:500px;">}}
 
 With the help of Frida we'll obtain the base image address in order to add the XOR instruction address and do all the operations to get the secret.
 
