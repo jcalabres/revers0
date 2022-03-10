@@ -1,4 +1,4 @@
-baseurl="https://www.versore.netlify.app"
+baseurl="https://versore.netlify.app"
 theme="hello-friend"
 languageCode="en-us"
 paginate=6
