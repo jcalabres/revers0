@@ -15,8 +15,8 @@ canonifyURLs=true
 
 [languages]
   [languages.en]
-    title="reverso"
-    subtitle="hexorcism made easy"
+    title="revers0"
+    subtitle="hexorciiissm"
     keywords="reverse engineering, malware analysis, mobile security, IOT security, android, ghidra, frida"
     menuMore="Show more"
     writtenBy="Written by"
@@ -27,7 +27,7 @@ canonifyURLs=true
     dateFormatSingle="02-01-2006"
     dateFormatList="02-01-2006"
     [languages.en.params.logo]
-      logoText="./reverso"
+      logoText="./revers0"
       logoHomeLink="/"
     [languages.en.menu]
       [[languages.en.menu.main]]
