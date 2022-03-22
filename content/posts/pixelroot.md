@@ -13,8 +13,8 @@ A common procedure in the industry is the adaptation of privilege escalation exp
 - [Table of Contents](#table-of-contents)
 - [Requirements](#requirements)
 - [Adapting the exploit](#adapting-the-exploit)
-- [Testing the exploit](#testing-the-exploit)
 - [Issues & improvements](#issues--improvements)
+- [Testing the exploit](#testing-the-exploit)
 
 ## Requirements
 
