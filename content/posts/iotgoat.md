@@ -1,6 +1,6 @@
 +++ 
 title = "IoTGoat Solutions " 
-date = "2022-03-22" 
+date = "2022-04-26" 
 author = "Joan Calabrés"  
 description = "Solutions to OWASP IoTGoat: A vulnerable IoT insecure firmware with the OWASP top 10 IoT vulnerabilities." 
 +++
@@ -13,18 +13,20 @@ During my training on IoT security, I have found this OWASP vulnerable machine t
 
 - [Table of Contents](#table-of-contents)
 - [Weak, Guessable, or Hardcoded Passwords](#weak-guessable-or-hardcoded-passwords)
+  - [Cracking the iotgoatuser password](#cracking-the-iotgoatuser-password)
+  - [Cracking the root password](#cracking-the-root-password)
 - [Insecure Network Services](#insecure-network-services)
-  - [SSH (port 22)](#ssh-port-22)
-  - [dnsmasq (port 53)](#dnsmasq-port-53)
-  - [backdoor (port 5515)](#backdoor-port-5515)
-  - [telnetd (port 65534)](#telnetd-port-65534)
+  - [Scaning the TCP ports](#scaning-the-tcp-ports)
+- [SSH (port 22)](#ssh-port-22)
+    - [dnsmasq (port 53)](#dnsmasq-port-53)
+    - [backdoor (port 5515)](#backdoor-port-5515)
+    - [telnetd (port 65534)](#telnetd-port-65534)
 - [Insecure Ecosystem Interfaces](#insecure-ecosystem-interfaces)
 - [Lack of Secure Update Mechanism](#lack-of-secure-update-mechanism)
-- [Use of Insecure or Outdated Components](#use-of-insecure-or-outdated-components)
-- [Insufficient Privacy Protection](#insufficient-privacy-protection)
 - [Insecure Data Transfer and Storage](#insecure-data-transfer-and-storage)
 - [Lack of Device Management](#lack-of-device-management)
 - [Insecure Default Settings](#insecure-default-settings)
+- [Conclusions](#conclusions)
 
 ## Weak, Guessable, or Hardcoded Passwords
 
@@ -138,9 +140,9 @@ PORT      STATE    SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 2625.87 seconds
 ```
 
-#### SSH (port 22)
+## SSH (port 22)
     
-    The SSH service is open, we can try the credentials found in step 1 **(iotgoatuser:7ujMko0vizxv)**.
+The SSH service is open, we can try the credentials found in step 1 **(iotgoatuser:7ujMko0vizxv)**.
 
     ```bash
     calabres@test:~/Downloads/IOTGoat$ ssh iotgoatuser@192.168.11.143
@@ -172,7 +174,8 @@ Nmap done: 1 IP address (1 host up) scanned in 2625.87 seconds
     Login suceed! We can login as **iotgoatuser**! 
     
 #### dnsmasq (port 53) 
-    The port **53** is usually bind with DNS services. In this case the TCP analysis of the port **53** returned the service being used: **dnsmasq 2.73**. I've found on the Internet that this service has multiple critical vulnerabilities related with **DNS poisoning** and **DoS attacks**.
+
+The port **53** is usually bind with DNS services. In this case the TCP analysis of the port **53** returned the service being used: **dnsmasq 2.73**. I've found on the Internet that this service has multiple critical vulnerabilities related with **DNS poisoning** and **DoS attacks**.
 
     ```bash
     sudo nmap -sR -p 53 192.168.11.143
@@ -192,7 +195,7 @@ Nmap done: 1 IP address (1 host up) scanned in 2625.87 seconds
 
 #### backdoor (port 5515)
 
-    There are also other ports detected during the nmap scan. Let's try to connect these ports using netcat. The port **5515** was able to perform a tcp connection, furthermore, this port is a backdoor that serves a root shell.
+There are also other ports detected during the nmap scan. Let's try to connect these ports using netcat. The port **5515** was able to perform a tcp connection, furthermore, this port is a backdoor that serves a root shell.
 
     ```bash
     calabres@test:~/Downloads/IOTGoat$ netcat 192.168.11.143 5515
@@ -219,11 +222,11 @@ Nmap done: 1 IP address (1 host up) scanned in 2625.87 seconds
     uid=0(root) gid=0(root)
     ```
 
-    Trying to figure out, how the backdoor is being served, I inspected the **init.d** folder. This folder has a file inside named **shellback** that points to a binary named shellback **(/usr/bin/shellback)**, this binary serves the backdoor that is loaded in every boot of the **IoTGoat** system.
+Trying to figure out, how the backdoor is being served, I inspected the **init.d** folder. This folder has a file inside named **shellback** that points to a binary named shellback **(/usr/bin/shellback)**, this binary serves the backdoor that is loaded in every boot of the **IoTGoat** system.
 
 #### telnetd (port 65534)
 
-    Following the same procedure, I used netcat to connect to the last unknown port and found it's asking for credentials.
+Following the same procedure, I used netcat to connect to the last unknown port and found it's asking for credentials.
 
     ```bash
     calabres@test:~/Downloads/IOTGoat$ netcat 192.168.11.143 65534
@@ -236,7 +239,7 @@ Nmap done: 1 IP address (1 host up) scanned in 2625.87 seconds
     IoTGoat login: ^C
     ```
 
-    Used nmap to identify the service, **telnetd** is running; during the inspection of the firmware I've found the binary of the daemon telnetd. Since the telnet protocol is in clear text is not a good idea to use this service.
+Used nmap to identify the service, **telnetd** is running; during the inspection of the firmware I've found the binary of the daemon telnetd. Since the telnet protocol is in clear text is not a good idea to use this service.
 
     ```bash
     calabres@test:~/Downloads/IOTGoat/_IoTGoat-x86.img-0.extracted$ sudo nmap -sR -p 65534 192.168.11.143
@@ -316,14 +319,14 @@ The last one is affecting the update mechanism as a provided malicious name can 
 
 Found a database in the filesystem named **/home/calabres/Downloads/IOTGoat/sensordata.db**. I used **SQLite Browser** in order to open the database and found personal information (names and emails) that are not encrypted:
 
-```
-johnsmith	    johnsmith@gmail.com	    1311977
-jillsmith	    jillsmith@gmail.com	    4141979
-walter	        waltergary@yopmail.com	32821969
-WilliamRonald	billronald@yopmail.com	11141989
-Test	        TstUser@aol.com	        12121990
-Sgt	            sgtmajor@us.gov	        10171956
-```
+| Username          | Email                  | Birthdate |
+|-------------------|------------------------|-----------|
+| johnsmith         | johnsmith@gmail.com    | 1311977   |
+| jillsmith         | jillsmith@gmail.com    | 4141979   |
+| walter            | waltergary@yopmail.com | 32821969  |
+| WilliamRonald     | billronald@yopmail.com | 11141989  |
+| Test              | TstUser@aol.com        | 12121990  |
+| Sgt               | sgtmajor@us.gov        | 10171956  |
 
 ## Lack of Device Management 	
 
