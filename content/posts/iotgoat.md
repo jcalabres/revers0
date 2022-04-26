@@ -317,7 +317,7 @@ The last one is affecting the update mechanism as a provided malicious name can 
 
 ## Insecure Data Transfer and Storage	
 
-Found a database in the filesystem named **/home/calabres/Downloads/IOTGoat/sensordata.db**. I used **SQLite Browser** in order to open the database and found personal information (names and emails) that are not encrypted:
+Found a database in the filesystem named **/home/calabres/Downloads/IOTGoat/sensordata.db**. I used **SQLite Browser** in order to open the database and found personal information (names, emails and birthdates) that are not encrypted:
 
 | Username          | Email                  | Birthdate |
 |-------------------|------------------------|-----------|
@@ -334,7 +334,7 @@ During the usage of the web application, I found different pages about logs. Onl
 
 ## Insecure Default Settings 
 
-I configured the **ZAP Proxy** and used **ZAP** for automatic vulnerability discovery. **ZAP** discovered that the application is not using **Content-Security-Policy or X-Frame-Options headers**. Furthermore, the application is only using **csrf tokens** in some procedures.
+I configured the **ZAP Proxy** and used **ZAP** for automatic vulnerability discovery. **ZAP** discovered that the application is not using **Content-Security-Policy or X-Frame-Options headers**. Furthermore, the application is only using **csrf tokens** in some requests.
 
 ## Conclusions
 
