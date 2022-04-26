@@ -15,8 +15,8 @@ canonifyURLs=true
 [languages]
   [languages.en]
     title="revers0"
-    subtitle="hexorciism made easy!"
-	description="hexorciissm made easy!"
+    subtitle="Hexorcism made easy!"
+	description="Hexorcism made easy!"
     keywords="reverse engineering, malware analysis, mobile security, IOT security, android, ghidra, frida"
     menuMore="Show more"
     writtenBy="Written by"
