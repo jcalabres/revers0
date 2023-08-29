@@ -5,14 +5,12 @@ author = "Joan Calabrés"
 cover = "android-cover.png"
 +++
 
-Hi there,
+Greetings,
 
-My name is Joan Calabrés, I'm the author of this blog and I work as a Cybersecurity Analyst on a cybersecurity laboratory.
+I'm Joan Calabrés, the individual behind this blog. Throughout my career, I've been involved with various companies, working as a reverse engineer and malware analyst, specifically focused on mobile applications.
 
-During my professional career I've been doing multiple cybersecurity projects, mostly related with reverse engineering on mobile applications and mobile malware.
+The main point of this blog is to share what I've learned. I want to turn it into a place where I can share my knowlege and provide useful tools to the community. 
 
-As a Cybersecurity professional, I always think we are a non-ending learners, eternal apprentices. This blog is focused on cybersecurity learning using the KISS (Keep it simple, stupid) philosophy.
+If you want to support my work and content, you can invite me for a coffee! Thanks!
 
-The content of this blog is related with my personal cybersecurity interests and also related with the last things I'm working on, with the main objective of exposing cybersecurity to everyone.
-
-Have a fun and healthy hacking!
+[![Donate with PayPal](/donate-button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AAC2C2XFS2RB2)

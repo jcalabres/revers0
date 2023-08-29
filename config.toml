@@ -1,23 +1,24 @@
-baseurl="https://revers0.xyz"
+baseurl="https://revers0.com"
 theme="hello-friend"
 languageCode="en-us"
 paginate=6
 
+googleAnalytics="UA-147436221-1"
 enableRobotsTXT=true
 canonifyURLs=true
 
 [params]
   contentTypeName="posts"
-  defaultTheme="white"
+  defaultTheme="black"
   showMenuItems=6
   showReadingTime=false
 
 [languages]
   [languages.en]
     title="revers0"
-    subtitle="Hexorcism made easy!"
-	description="Hexorcism made easy!"
-    keywords="reverse engineering, malware analysis, mobile security, IOT security, android, ghidra, frida"
+    subtitle="Mobile RE made easy"
+	description="Mobile RE made easy"
+    keywords="reverse engineering, malware analysis, mobile security, iot security, open finance, android, iOS, ghidra, frida, jadx"
     menuMore="Show more"
     writtenBy="Written by"
     readMore="Read more"
@@ -26,6 +27,7 @@ canonifyURLs=true
     olderPosts="Older posts"
     dateFormatSingle="02-01-2006"
     dateFormatList="02-01-2006"
+    lastModDisplay = "Updated:"
     [languages.en.params.logo]
       logoText="./revers0"
       logoHomeLink="/"
