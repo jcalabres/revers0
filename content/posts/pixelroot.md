@@ -55,6 +55,8 @@ export NDK="/home/calabres/NDK"
 
 ## Adapting the exploit
 
+Pixel 3 offsets are already setted up, you only need to adapt the exploit if you have a Pixel 3a or Pixel 3 XL.
+
 1. First of all we need to extract the compressed kernel image from the boot.img. For that, we will use the already downloaded tool **abootimg**.
 
 ```bash
@@ -185,3 +187,8 @@ root_by_cve-2020-0041:/ #
 I usually run run [rootbeer](https://play.google.com/store/apps/details?id=com.scottyab.rootbeer.sample&hl=es_419&gl=US) sample app for a fast root detection test. Despite this third party library is not using the same detection methods as banking applications is a good way to get an idea of how much your rooted device is hidden. Rootbeer was not able to detect root while using this privilege escalation exploit.
 
 {{< image src="/posts/img/pixelroot/rootbeer.png" alt="Using rootbeer" style="align: center;border-radius: 8px;height: 600px;">}}
+
+## Fully adapted exploit
+
+I've prepared a Pixel 3 adapted exploit for you, this exploit doesn't have any limitations and works properly without any changes. If you want to update it for other devices you only need to clone my repository and change the offsets for your specific device.
+You can find a working version of the adapted exploit for Pixel 3 on my [GitHub](https://github.com/jcalabres/root-exploit-pixel3) page.
