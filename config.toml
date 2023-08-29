@@ -13,6 +13,9 @@ canonifyURLs=true
   showMenuItems=6
   showReadingTime=false
 
+[markup.goldmark.renderer]
+unsafe = true
+
 [languages]
   [languages.en]
     title="revers0"

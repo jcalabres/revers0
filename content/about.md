@@ -13,4 +13,6 @@ The main point of this blog is to share what I've learned. I want to turn it int
 
 If you want to support my work and content, you can invite me for a coffee! Thanks!
 
-[![Donate with PayPal](/donate-button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AAC2C2XFS2RB2)
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AAC2C2XFS2RB2" style="display: inline-block;">
+  <img src="/donate-button.png" alt="Donate with PayPal" style="width: 40%; height: auto;">
+</a>
