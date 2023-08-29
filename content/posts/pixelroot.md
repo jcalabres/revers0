@@ -15,6 +15,7 @@ A common procedure in the industry is the adaptation of privilege escalation exp
 - [Adapting the exploit](#adapting-the-exploit)
 - [Issues & improvements](#issues--improvements)
 - [Testing the exploit](#testing-the-exploit)
+- [Fully adapted exploit](#fully-adapted-exploit)
 
 ## Requirements
 
