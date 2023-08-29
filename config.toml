@@ -33,9 +33,21 @@ unsafe = true
     lastModDisplay = "Updated:"
     [languages.en.params.logo]
       logoText="./revers0"
-      logoHomeLink="/"
+      logoHomeLink="/posts"
     [languages.en.menu]
       [[languages.en.menu.main]]
         identifier="about"
         name="About"
         url="/about"
+      [[languages.en.menu.main]]
+        identifier = "Projects"
+        name = "Projects"
+        url = "/projects"
+      [[languages.en.menu.main]]
+        identifier = "Training"
+        name = "Training"
+        url = "/training"
+      [[languages.en.menu.main]]
+        identifier="posts"
+        name="Posts"
+        url="/"
