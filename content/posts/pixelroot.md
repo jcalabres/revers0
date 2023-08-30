@@ -9,14 +9,6 @@ There are different root frameworks that can be used on Android in order to obta
 
 A common procedure in the industry is the adaptation of privilege escalation exploits that are not detectable by most of the applications. In this post I will explain how to adapt [bluefrostsecurity](https://labs.bluefrostsecurity.de/blog/2020/04/08/cve-2020-0041-part-2-escalating-to-root/) **CVE-2020-0041** PoC for Pixel 3 to all the Pixel3 family devices. Furthermore, I will provide an improvement to obtain a non-limited root shell. 
 
-## Table of Contents
-- [Table of Contents](#table-of-contents)
-- [Requirements](#requirements)
-- [Adapting the exploit](#adapting-the-exploit)
-- [Issues & improvements](#issues--improvements)
-- [Testing the exploit](#testing-the-exploit)
-- [Fully adapted exploit](#fully-adapted-exploit)
-
 ## Requirements
 
 * Download the **CVE-2020-0041** PoC exploit that we will be using for the modifications:

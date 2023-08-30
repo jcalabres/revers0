@@ -12,7 +12,8 @@ canonifyURLs=true
   defaultTheme="black"
   showMenuItems=6
   showReadingTime=false
-
+  toc = true
+  
 [markup.goldmark.renderer]
 unsafe = true
 
@@ -20,7 +21,7 @@ unsafe = true
   [languages.en]
     title="revers0"
     subtitle="Mobile RE made easy"
-	description="Mobile RE made easy"
+	  description="Mobile RE made easy"
     keywords="reverse engineering, malware analysis, mobile security, iot security, open finance, android, iOS, ghidra, frida, jadx"
     menuMore="Show more"
     writtenBy="Written by"
@@ -30,7 +31,6 @@ unsafe = true
     olderPosts="Older posts"
     dateFormatSingle="02-01-2006"
     dateFormatList="02-01-2006"
-    lastModDisplay = "Updated:"
     [languages.en.params.logo]
       logoText="./revers0"
       logoHomeLink="/posts"
@@ -40,11 +40,11 @@ unsafe = true
         name="About"
         url="/about"
       [[languages.en.menu.main]]
-        identifier = "Projects"
+        identifier = "projects"
         name = "Projects"
         url = "/projects"
       [[languages.en.menu.main]]
-        identifier = "Training"
+        identifier = "training"
         name = "Training"
         url = "/training"
       [[languages.en.menu.main]]

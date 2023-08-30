@@ -12,16 +12,6 @@ The <a href="https://github.com/nowsecure/cybertruckchallenge19">CyberTruckChall
 
 *note: the challenges presented in this post are for beginners, however; if you don't have a basic knowledge about mobile RE, this is not pretended to be a tutorial.*
 
-## Table of Contents
-- [Table of Contents](#table-of-contents)
-- [Description](#description)
-- [Tools](#tools)
-- [First Steps](#first-steps)
-- [Countermeasures](#countermeasures)
-- [Challenge 1](#challenge-1)
-- [Challenge 2](#challenge-2)
-- [Challenge 3](#challenge-3)
-
 ## Description
 
 *"A new mobile remote keyless system "CyberTruck" has been implemented by one of the most well-known car security companies "NowSecure Mobile Vehicles". The car security company has ensured that the system is entirely uncrackable and therefore attackers will not be able to recover secrets within the mobile application.*

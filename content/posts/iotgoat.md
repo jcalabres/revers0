@@ -9,25 +9,6 @@ description = "Solutions to OWASP IoTGoat: A vulnerable IoT insecure firmware wi
 
 During my training on IoT security, I have found this OWASP vulnerable machine that tries to simulate a vulnerable IoT device introducing the **OWASP top 10 IoT vulnerabilities**. In this post, I will show you my solutions to this challenge. This challenge provides different ways to get started hacking. In my case, I've downloaded the precompiled firmware for static analysis and also downloaded the IoTGoat-x86.vdi for dynamic web testing using VirtualBox.
 
-## Table of Contents
-
-- [Table of Contents](#table-of-contents)
-- [Weak, Guessable, or Hardcoded Passwords](#weak-guessable-or-hardcoded-passwords)
-  - [Cracking the iotgoatuser password](#cracking-the-iotgoatuser-password)
-  - [Cracking the root password](#cracking-the-root-password)
-- [Insecure Network Services](#insecure-network-services)
-  - [Scaning the TCP ports](#scaning-the-tcp-ports)
-- [SSH (port 22)](#ssh-port-22)
-    - [dnsmasq (port 53)](#dnsmasq-port-53)
-    - [backdoor (port 5515)](#backdoor-port-5515)
-    - [telnetd (port 65534)](#telnetd-port-65534)
-- [Insecure Ecosystem Interfaces](#insecure-ecosystem-interfaces)
-- [Lack of Secure Update Mechanism](#lack-of-secure-update-mechanism)
-- [Insecure Data Transfer and Storage](#insecure-data-transfer-and-storage)
-- [Lack of Device Management](#lack-of-device-management)
-- [Insecure Default Settings](#insecure-default-settings)
-- [Conclusions](#conclusions)
-
 ## Weak, Guessable, or Hardcoded Passwords
 
 The first thing I've done is to download the firmware and extract it using binwalk.  
@@ -140,7 +121,7 @@ PORT      STATE    SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 2625.87 seconds
 ```
 
-## SSH (port 22)
+#### SSH (port 22)
     
 The SSH service is open, we can try the credentials found in step 1 **(iotgoatuser:7ujMko0vizxv)**.
 
