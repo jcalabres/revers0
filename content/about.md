@@ -3,6 +3,7 @@ title = "About"
 date = "09-01-2019" 
 author = "Joan Calabrés" 
 cover = "android-cover.png"
+toc = false
 +++
 
 Greetings,
