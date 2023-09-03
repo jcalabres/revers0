@@ -93,6 +93,6 @@ As you can see the hooks are updated. So far, I've tried these hooks and they wo
 
 Hopefully hook-updater will work in apps that doesnt apply a huge effort in obfuscation for every release.
 
-## More information
+## About hook-updater
 
 There's some detailed information about hook-updater on its [repository](https://github.com/jcalabres/hook-updater), please check it for more information and don't hesitate to collaborate arround it.
