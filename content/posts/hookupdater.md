@@ -91,7 +91,7 @@ a.o.overload("l.b.s0.a", "l.b.s0.e.e.a.d", "java.lang.StringBuffer").implementat
 
 As you can see the hooks are updated. So far, I've tried these hooks and they work correctly. 
 
-Hopefully hook-updater will work in apps that doesnt apply a huge effort in obfuscation for every release.
+Hopefully hook-updater will work in apps that doesn't apply a big effort in obfuscation on every release.
 
 ## About hook-updater
 
