@@ -95,4 +95,4 @@ Hopefully hook-updater will work in apps that doesn't apply a big effort in obfu
 
 ## About hook-updater
 
-There's some detailed information about hook-updater on its [repository](https://github.com/jcalabres/hook-updater), please check it for more information and don't hesitate to collaborate arround it.
+There's some detailed information about hook-updater on its [repository](https://github.com/jcalabres/hook-updater), please check it for more information and don't hesitate to collaborate.
