@@ -1,5 +1,5 @@
 +++ 
-title = "OWASP IoTGoat Solutions " 
+title = "OWASP IoTGoat solutions " 
 date = "2022-04-26" 
 author = "Joan Calabrés"  
 description = "Solutions to OWASP IoTGoat: A vulnerable IoT insecure firmware with the OWASP top 10 IoT vulnerabilities." 
