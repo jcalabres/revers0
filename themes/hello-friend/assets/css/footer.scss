@@ -37,14 +37,12 @@
       margin-right: 10px;
 
        @media ($tablet) {
-        border: none;
-        padding: 0;
-        margin: 0;
+        flex-direction: row;
       }
     }
 
     @media ($tablet) {
-      flex-direction: column;
+      flex-direction: row;
       margin-top: 10px;
     }
   }
