@@ -44,10 +44,10 @@ unsafe = true
         name = "Tools"
         url = "/tools"
       [[languages.en.menu.main]]
-        identifier = "guides"
-        name = "Guides"
-        url = "/guides"
-      [[languages.en.menu.main]]
         identifier="posts"
         name="Posts"
         url="/"
+      [[languages.en.menu.main]]
+        identifier="training"
+        name="Training"
+        url="/training"
