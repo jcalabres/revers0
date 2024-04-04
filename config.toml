@@ -40,10 +40,6 @@ unsafe = true
         name="About"
         url="/about"
       [[languages.en.menu.main]]
-        identifier = "tools"
-        name = "Tools"
-        url = "/tools"
-      [[languages.en.menu.main]]
         identifier="posts"
         name="Posts"
         url="/"
