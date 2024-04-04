@@ -20,9 +20,9 @@ unsafe = true
 [languages]
   [languages.en]
     title="revers0"
-    subtitle="Mobile RE made easy"
-	  description="Mobile RE made easy"
-    keywords="reverse engineering, malware analysis, mobile security, iot security, open finance, android, iOS, ghidra, frida, jadx"
+    subtitle="Mobile RE - Unveiling the Unknown"
+	  description="Mobile RE - Unveiling the Unknown"
+    keywords="reverse engineering, exploitation, malware analysis, mobile security, iot security, open finance, android, iOS, ghidra, frida, jadx"
     menuMore="Show more"
     writtenBy="Written by"
     readMore="Read more"
