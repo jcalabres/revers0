@@ -585,43 +585,6 @@ h4:hover a {
 .framed .h-anchor {
   visibility: hidden; }
 
-#cookie-notice {
-  font-size: larger;
-  padding: 0.5rem 1rem;
-  display: none;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  left: 20px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  width: 100%;
-  background: #464646;
-  color: rgba(255, 255, 255, 0.8); }
-
-#cookie-notice a {
-  font-weight: 600;
-  display: inline-flex;
-  cursor: pointer;
-  margin-left: 0.5rem; }
-
-#cookie-notice-accept {
-  color: #56e43a; }
-
-#cookie-notice-deny {
-  color: #f32222; }
-
-@media (max-width: 767px) {
-  #cookie-notice span {
-    display: block;
-    padding-top: 3px;
-    margin-bottom: 1rem; }
-  #cookie-notice a {
-    position: relative;
-    bottom: 4px; }
-  #cookie-notice {
-    left: 0px; } }
-
 .post {
   width: 100%;
   max-width: 800px;
@@ -777,6 +740,79 @@ h4:hover a {
       .footer .copyright {
         flex-direction: row;
         margin-top: 10px; } }
+#cookie-notice {
+  font-size: larger;
+  padding: 30px;
+  display: none;
+  text-align: center;
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 98%;
+  /* Adjusted width */
+  max-width: 1000px;
+  /* Adjusted max width */
+  background: rgba(70, 70, 70, 0.9);
+  /* Added transparency */
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px; }
+
+#cookie-notice p {
+  margin-bottom: 20px;
+  /* Added margin between text and buttons */ }
+
+#cookie-notice a {
+  font-weight: 600;
+  display: inline-block;
+  /* Display buttons on the same line */
+  cursor: pointer;
+  margin: 0.5rem;
+  /* Adjusted margin */
+  padding: 10px 20px;
+  /* Adjusted padding */
+  border-radius: 8px;
+  text-decoration: none; }
+
+#cookie-notice-accept,
+#cookie-notice-deny {
+  width: auto;
+  /* Ensure both buttons have the same size */ }
+
+#cookie-notice-accept {
+  background-color: #56e43a;
+  color: white; }
+
+#cookie-notice-deny {
+  background-color: #f32222;
+  color: white; }
+
+#cookie-notice-more-info {
+  font-weight: 600;
+  display: inline-flex;
+  /* Display "More Info" button inline */
+  align-items: center;
+  /* Align items vertically */
+  justify-content: center;
+  /* Center horizontally */
+  cursor: pointer;
+  margin: 0.5rem;
+  /* Adjusted margin */
+  padding: 10px 20px;
+  /* Adjusted padding */
+  border-radius: 8px;
+  background-color: rgba(30, 144, 255, 0.7);
+  /* Adjusted transparency */
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.9); }
+
+@media (max-width: 767px) {
+  #cookie-notice {
+    width: 90%;
+    /* Adjusted width for smaller screens */
+    max-width: 500px;
+    /* Adjusted max width for smaller screens */ } }
+
 .terms {
   width: 100%;
   max-width: 800px;

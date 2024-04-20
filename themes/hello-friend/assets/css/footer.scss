@@ -47,3 +47,69 @@
     }
   }
 }
+
+#cookie-notice {
+  font-size: larger;
+  padding: 30px;
+  display: none;
+  text-align: center;
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 98%; /* Adjusted width */
+  max-width: 1000px; /* Adjusted max width */
+  background: rgba(70, 70, 70, 0.9); /* Added transparency */
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+#cookie-notice p {
+  margin-bottom: 20px; /* Added margin between text and buttons */
+}
+
+#cookie-notice a {
+  font-weight: 600;
+  display: inline-block; /* Display buttons on the same line */
+  cursor: pointer;
+  margin: 0.5rem; /* Adjusted margin */
+  padding: 10px 20px; /* Adjusted padding */
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+#cookie-notice-accept,
+#cookie-notice-deny {
+  width: auto; /* Ensure both buttons have the same size */
+}
+
+#cookie-notice-accept {
+  background-color: rgb(86, 228, 58);
+  color: white;
+}
+
+#cookie-notice-deny {
+  background-color: rgb(243, 34, 34);
+  color: white;
+}
+
+#cookie-notice-more-info {
+  font-weight: 600;
+  display: inline-flex; /* Display "More Info" button inline */
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Center horizontally */
+  cursor: pointer;
+  margin: 0.5rem; /* Adjusted margin */
+  padding: 10px 20px; /* Adjusted padding */
+  border-radius: 8px;
+  background-color: rgba(30, 144, 255, 0.7); /* Adjusted transparency */
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 767px) {
+  #cookie-notice {
+    width: 90%; /* Adjusted width for smaller screens */
+    max-width: 500px; /* Adjusted max width for smaller screens */
+  }
+}
