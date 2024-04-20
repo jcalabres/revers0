@@ -11,8 +11,8 @@ canonifyURLs=true
   contentTypeName="posts"
   defaultTheme="black"
   showMenuItems=6
-  showReadingTime=false
-  toc = true
+  showReadingTime=true
+  toc=true
   
 [markup.goldmark.renderer]
 unsafe = true
@@ -26,6 +26,7 @@ unsafe = true
     menuMore="Show more"
     writtenBy="Written by"
     readMore="Read more"
+    minuteReadingTime = "min read"
     readOtherPosts="Read other posts"
     newerPosts="Newer posts"
     olderPosts="Older posts"
@@ -43,7 +44,3 @@ unsafe = true
         identifier="posts"
         name="Posts"
         url="/"
-      [[languages.en.menu.main]]
-        identifier="training"
-        name="Training"
-        url="/training"
