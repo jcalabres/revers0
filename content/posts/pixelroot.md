@@ -1,8 +1,8 @@
-+++ 
-title = "Bypassing root detection on Pixel 3 devices" 
-date = "2022-02-27" 
-author = "Joan Calabrés"  
-description = "Adapting the CVE-2020-0041 privilege escalation exploit for Pixel 3 family devices in order to bypass root detection."
++++
+title = "Bypassing Root Detection on Pixel 3 Devices"
+date = "2022-02-27"
+author = "Joan Calabrés"
+description = "Adapting the CVE-2020-0041 privilege escalation exploit for all Pixel 3 family devices to bypass root detection in banking apps."
 +++
 
 There are different root frameworks that can be used on Android in order to obtain root privileges. Usually, during Android application security evaluations, root detection is tested in different ways. Application countermeasures such as root detection are easy to bypass in most of the Android applications and sometimes without the use of reverse engineering techniques; however, as I've been seen during the analysis of banking applications, bypassing root detection on these applications can be hard and time consuming due high obfuscation and countermeasures applied.
@@ -48,7 +48,7 @@ export NDK="/home/calabres/NDK"
 
 ## Adapting the exploit
 
-Pixel 3 offsets are already setted up, you only need to adapt the exploit if you have a Pixel 3a or Pixel 3 XL.
+Pixel 3 offsets are already set up. You only need to adapt the exploit if you have a Pixel 3a or Pixel 3 XL.
 
 1. First of all we need to extract the compressed kernel image from the boot.img. For that, we will use the already downloaded tool **abootimg**.
 
@@ -90,7 +90,7 @@ OFFSET_PIPE_FOP
 
 ## Issues & improvements
 
-After the adaptation of the exploit and its execution, you will obtain a root shell; however, this root shell is very limited and you will have some problems executing binaries and creating files. Finding on the Internet I found the issue: *you need to patch the security context of the root user.*
+After adapting and running the exploit, you will get a root shell — however, this shell is very limited and you will have trouble executing binaries and creating files. Searching online, I found the cause: *you need to patch the security context of the root user.*
 
 During the exploit execution the process executed need to be patched with the correct security context for the root user. The next function is used to patch the credentials of a specific address:
 

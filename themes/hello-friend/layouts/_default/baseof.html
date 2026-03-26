@@ -23,7 +23,7 @@
       {{ end }}
     </div>
 
-    {{ if $.Site.GoogleAnalytics }}
+    {{ if site.Config.Services.GoogleAnalytics.ID }}
       {{ partial "cookie-consent.html" . }}
     {{ end }}
   </body>

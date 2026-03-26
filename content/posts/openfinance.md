@@ -1,8 +1,8 @@
-+++ 
-title = "Open Banking and Mobile RE" 
-date = "2024-04-05" 
-author = "Joan Calabrés"  
-description = "In this post I'll explain Mobile RE in open banking with a real example." 
++++
+title = "Open Banking and Mobile Reverse Engineering"
+date = "2024-04-05"
+author = "Joan Calabrés"
+description = "How reverse engineering fits into open banking: bypassing certificate pinning, analysing encrypted login flows, and extracting undocumented bank APIs."
 +++
 
 ## What's Open Banking?
@@ -11,13 +11,13 @@ Open Banking is based on the principle that the data supplied by and created on 
 
 ## Why Reverse Engineering?
 
-In some countries exists some difficulties to access bank API's, most of them don't follow any standards and they have bad quality and stability. In addition, banks are not proactive to opening up their data to third parties.
+In some countries, accessing bank APIs is difficult — most don't follow any standards and have poor quality and stability. Banks are generally not proactive about opening up their data to third parties.
 
-For that reason, when there's not any posible partering with the banks or other alternatives, reverse engineering comes into place. Scraping data from websites and from mobile applications is commonly used to obtain all the data needed from the target API. 
+When partnering with banks is not possible and no other alternative exists, reverse engineering comes into play. Scraping data from websites and mobile applications is commonly used to obtain the data needed from the target API.
 
 ## Why Mobile over Web?
 
-There's no specific reason to chose one over the other. It's a decision that takes various factors and considerations:
+There's no specific reason to choose one over the other. It's a decision that takes various factors and considerations:
 
 * User experience - The API might be more limited for one of the options.
   * How many months of transactions we can get on Mobile over Web?
@@ -45,7 +45,7 @@ The application uses the **MatrixHCE** payment SDK. This SDK is used for **HCE (
 This payment SDK made by **Inside Secure** is one of the most advanced **HCE SDK's** in the market, it also provides state of the art software protections such as e.g. root detection, debug detection, hook detection, device binding, static and dynamic tampering protections and so on.
 
 
- Most of the times, these kind of SDK's only protects the payments assets, and it's responsability of the integrator app to implement their own protections or to integrate the SDK's protections correctly.
+Most of the time, these SDKs only protect the payment assets. It is the responsibility of the integrating app to implement its own protections or to correctly integrate those provided by the SDK.
 
  The Inside Secure's SDK protections are mainly implemented in the native layer. The bank app loads the native library using the ```System.loadLibrary("hce_ndk");``` and uses the ```MatrixHCENativeBridge```class as a bridge between the Java and native layer. An example of the Inside Secure's implemented protections are:
  
@@ -147,7 +147,7 @@ this.keyPair = generateKeyPair;
 return OTgOVTlBcn.LfBjeUWJCY(generateKeyPair.getPublic().getEncoded());
 ```
 
-After the generation of the DH and the first phase of the key exchange, the application will use an AES key to encrypt some data such as the username and password. All the crypto functionalities and encryption of the login process is happenning inside the ```DLCypto```class.
+After the generation of the DH and the first phase of the key exchange, the application will use an AES key to encrypt some data such as the username and password. All the cryptographic operations for the login process are happening inside the `DLCrypto` class.
 
 ### Login API
 

@@ -1,16 +1,13 @@
-+++ 
-title = "CyberTruckChallenge 2019" 
-date = "2019-09-08" 
-author = "Joan Calabrés"  
-description = "Oh my god, hacking cars... never too easy!" 
++++
+title = "CyberTruck Challenge 2019"
+date = "2019-09-08"
+author = "Joan Calabrés"
+description = "My solutions to the CyberTruck Challenge 2019 — an Android security workshop by NowSecure covering Frida instrumentation and native reverse engineering."
 +++
 
-Hello, in this post I'll show you <a href="https://gist.github.com/jcalabres/f90c601d4f02874f34f6974e657ae3f5">my solutions</a> for the CyberTruckChallenge of 2019. 
+In this post I'll walk through [my solutions](https://gist.github.com/jcalabres/f90c601d4f02874f34f6974e657ae3f5) for the [CyberTruck Challenge 2019](https://github.com/nowsecure/cybertruckchallenge19) — an Android security workshop sponsored by NowSecure and created by [@enovella](https://github.com/enovella).
 
-The <a href="https://github.com/nowsecure/cybertruckchallenge19">CyberTruckChallenge</a> is a workshop about Android Security sponsored by NowSecure and created by 
-<a href="https://github.com/enovella">@enovella</a>. 
-
-*note: the challenges presented in this post are for beginners, however; if you don't have a basic knowledge about mobile RE, this is not pretended to be a tutorial.*
+*Note: the challenges presented here are beginner-level. Some familiarity with mobile reverse engineering is assumed — this is not a tutorial from scratch.*
 
 ## Description
 
@@ -23,9 +20,9 @@ The <a href="https://github.com/nowsecure/cybertruckchallenge19">CyberTruckChall
 
 The main tools needed for these solutions are listed below:
 
-* <a href="https://www.frida.re">**Frida**</a> 
-* <a href="https://github.com/skylot/jadx">**jadx**</a> 
-* <a href="https://ghidra-sre.org">**Ghidra**</a> 
+* [**Frida**](https://www.frida.re)
+* [**jadx**](https://github.com/skylot/jadx)
+* [**Ghidra**](https://ghidra-sre.org)
 
 ## First Steps
 
@@ -72,7 +69,7 @@ if((arg8) && (new HookDetector().isFridaServerInDevice())) {
 }
 ```
 
-After decompiling the **Frida** countermeasure we can state that the implementation it's very simple and only it's finding to different possible locations of **Frida** server that may be in the device. If the Frida server it's found it will returns True else False.
+After decompiling the **Frida** countermeasure, the implementation is straightforward — it checks a few hardcoded paths where the Frida server binary might be located. If any of those paths exist, it returns true.
 
 ```java
 public boolean isFridaServerInDevice() {
@@ -101,7 +98,7 @@ adb shell chmod +x /data/local/tmp/Frida-server-12.6.18-android-x86
 adb shell /data/local/tmp/Frida-server-12.6.18-android-x86
 ```
 
-After that, we can create our first hook with Frida to bypass the protection, I'll be a .js file.
+Next, we create our first Frida hook to bypass the protection. It will be a `.js` file.
 
 ```javascript
 Java.perform(function () {
@@ -155,7 +152,7 @@ challenge1.generateDynamicKey.implementation = function (v) {
 }
 ```
 
-As the code states, we're printing our key in hexadecimal format. but we're not changing the real return of the function. Stated below are the two secrets of this challenge.
+The hook prints the key in hexadecimal format without altering the real return value. The two secrets for this challenge are:
 
 ```txt
 [SECRET1] s3cr3t$_n3veR_mUst_bE_h4rdc0d3d_m4t3!
@@ -205,7 +202,7 @@ challenge2.a.overload('[B', '[B').implementation = function (v1,v2) {
 }
 ```
 
-Stated below are the two secrets of this challenge and the three and four of the overall challenge.
+These are secrets three and four of the overall challenge:
 
 ```txt
 [SECRET3] d474_47_r357_mu57_pR073C73D700!!
@@ -258,7 +255,7 @@ Process.enumerateModules({
 });
 ```
 
-Stated below are the two secrets of this challenge and two final ones.
+These are the final two secrets of the challenge:
 
 ```txt
 [SECRET5] Native_c0d3_1s_h4rd3r_To_r3vers3

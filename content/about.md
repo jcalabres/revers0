@@ -1,17 +1,18 @@
-+++ 
-title = "About" 
-date = "09-01-2019" 
-author = "Joan Calabrés" 
++++
+title = "About"
+date = "2019-01-09"
+author = "Joan Calabrés"
 cover = "android-cover.png"
 toc = false
+readingTime = false
 +++
 
-Greetings,
+Hi, I'm Joan Calabrés — a reverse engineer and security researcher specializing in mobile platforms.
 
-I'm Joan Calabrés, the individual behind this blog. Throughout my career, I've been involved with various companies, working as a reverse engineer and malware analyst, specifically focused on mobile applications.
+My work sits at the intersection of mobile fraud research, image injection attacks, and malware analysis on Android and iOS. I reverse engineer threats to understand how they actually work, research and build tooling to detect and prevent them, and dig deep into platform internals when the situation calls for it.
 
-The main point of this blog is to share what I've learned. I want to turn it into a place where I can share my knowledge and provide useful tools for the community. If you want to support my work and content, feel free to donate.
+Day-to-day that means tearing apart apps, tracing runtime behavior with Frida, grinding through disassembly in Ghidra and JADX, and figuring out how fraud techniques operate under the hood so proper defenses can be built. On occasion I also dabble in exploit development.
 
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AAC2C2XFS2RB2" style="display: inline-block;">
-  <img src="/donate-button.png" alt="Donate with PayPal" style="width: 40%; height: auto;">
-</a>
+This blog documents the techniques, findings, and tools I find worth writing about. If something here saves you time or gives you a new angle on a problem, that's the point.
+
+You can find my work and projects on [GitHub](https://github.com/jcalabres) or connect on [LinkedIn](https://www.linkedin.com/in/jcalabres).

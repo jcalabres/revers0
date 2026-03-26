@@ -1,11 +1,11 @@
-+++ 
-title = "Using hook-updater to update old Android Frida hooks" 
-date = "2023-08-31" 
-author = "Joan Calabrés"  
-description = "I've created a tool to update old Android Frida hooks. In this post I will show you how to use this tool and get updated hooks for your apps." 
++++
+title = "Using hook-updater to Update Old Android Frida Hooks"
+date = "2023-08-31"
+author = "Joan Calabrés"
+description = "I built hook-updater to automatically migrate Frida hooks across app versions using Smali similarity scoring."
 +++
 
-During my time as a *reverse engineer* I've created **Frida** hooks that were unusable after the app was updated. Once you have your first hooks on the target app you have something to compare with the udpdated app. If the updated app doesn't change obfuscation or code too much, we'll probably have old code that can be matched with updated code. Hopefully if not much differences are applied we'll get a match and then your hooks will be updated :)
+During my time as a reverse engineer I've accumulated **Frida** hooks that become unusable after an app update. Once you have hooks on a target app, you have a baseline to compare against the updated version. If the new release doesn't heavily change its obfuscation or logic, the old code can be matched with the new code and the hooks updated automatically.
 
 ## Why hook-updater?
 
@@ -17,7 +17,7 @@ The user specifies two different APKs for the same application. It also specifie
 
 The application uses multiple metrics and a score system to detect similarities between Java classes and Java methods that are in the Smali format.
 
->Smali is a languaje created for representing decompiled Android bytecodes and it can be obtained using the original [baksmali](https://github.com/JesusFreke/smali) tool or using other tools that have integrated it such as apktool or jadx.
+>Smali is a language for representing decompiled Android bytecode. It can be obtained using the original [baksmali](https://github.com/JesusFreke/smali) tool, or via tools that integrate it such as apktool or jadx.
 
 ## A real world example
 

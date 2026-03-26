@@ -1,5 +1,5 @@
 +++ 
-title = "OWASP IoTGoat solutions " 
+title = "OWASP IoTGoat Solutions"
 date = "2022-04-26" 
 author = "Joan Calabrés"  
 description = "Solutions to OWASP IoTGoat: A vulnerable IoT insecure firmware with the OWASP top 10 IoT vulnerabilities." 
@@ -17,7 +17,7 @@ The first thing I've done is to download the firmware and extract it using binwa
 binwalk -ev IoTGoat-x86.img
 ```
 
-The firmware was extracted correctly, as it's not encrypted, we can get into the squash filesystem named **sqashfs-root** and browser for the Linux password files. I've inspected the **/etc/shadw** and **/etc/passwd** files using the cat utility.
+The firmware was extracted correctly, as it's not encrypted, we can get into the squash filesystem named **sqashfs-root** and browser for the Linux password files. I've inspected the **/etc/shadow** and **/etc/passwd** files using the cat utility.
 
 ```bash
 calabres@test:~/Downloads/IOTGoat$ cat _IoTGoat-x86.img-0.extracted/squashfs-root/etc/passwd
@@ -62,7 +62,7 @@ Use the "--show" option to display all of the cracked passwords reliably
 Session completed
 ```
 
-The **john** password cracker used the password salts of the **root** user and **iotgoatuser** in order to calculate hashes with the different passwords inside the worlists.
+The **john** password cracker used the password salts of the **root** user and **iotgoatuser** to calculate hashes against the different passwords in the wordlists.
 
 Finally, after a while... one of the passwords of the wordlist has matched with the salted hash of the **iotgoatuser**. The password is **7ujMko0vizxv**. 
 
@@ -97,7 +97,7 @@ iotgoathardcodedpassword
 
 ## Insecure Network Services	
 
-### Scaning the TCP ports
+### Scanning the TCP Ports
 
 First of all, I did an nmap in order to discover the different **TCP ports** opened. The **-p-** option tells nmap to scan all the available ports. The **-sT** option tells nmap to scan tcp ports. The following ports were discovered:
 
@@ -152,7 +152,7 @@ The SSH service is open, we can try the credentials found in step 1 **(iotgoatus
     iotgoatuser@IoTGoat:~$ 
     ```
 
-    Login suceed! We can login as **iotgoatuser**! 
+    Login succeeded! We can log in as **iotgoatuser**!
     
 #### dnsmasq (port 53) 
 
@@ -319,5 +319,5 @@ I configured the **ZAP Proxy** and used **ZAP** for automatic vulnerability disc
 
 ## Conclusions
 
-This vulnerable machine is not intended to be the common penetration testing machine that one needs to obtain root privileges; root privileges are easy to obtain and by different ways. Instead, it includes multiple critical vulnerabilities and shows to the security analyst the different vulnerabilities that can be present on a **IoT device**. Some of these vulnerabilities are very common or easy to discover. As the software included in this machine seems to be focused to be vulnerable, one can explore more advanced vulnerabilities and try to explote them. In my case, I just made a light walk with the top **10 OWASP IoT vulnerabilities** and reported the most interesting ones. Hope you enjoyed!
+This vulnerable machine is not intended to be the common penetration testing machine that one needs to obtain root privileges; root privileges are easy to obtain and by different ways. Instead, it includes multiple critical vulnerabilities and shows to the security analyst the different vulnerabilities that can be present on a **IoT device**. Some of these vulnerabilities are very common or easy to discover. As the software included in this machine is designed to be vulnerable, one can explore more advanced vulnerabilities and try to exploit them. In my case, I just made a light walk with the top **10 OWASP IoT vulnerabilities** and reported the most interesting ones. Hope you enjoyed!
 

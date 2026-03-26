@@ -1,17 +1,17 @@
-+++ 
-title = "Quick Xamarin RE Guide" 
-date = "2023-08-30" 
-author = "Joan Calabrés"  
-description = "Get started with Xamarin reverse engineering with this quick guide."
++++
+title = "Quick Xamarin Reverse Engineering Guide"
+date = "2023-08-30"
+author = "Joan Calabrés"
+description = "A practical guide to reverse engineering Xamarin Android apps: decompiling DLL assemblies, hooking .NET code with Fridax, and bypassing certificate pinning."
 +++
 
 ## What is Xamarin?
 
-Xamarin is an open source platform used to compile modern applications with a great performance for iOS, Android and Windows with .NET. Xamarin is an abstraction layer that administrates shared code with the code of the underlying platform. Xamarin is executed in an administered environment that performs memory assignation and garbage collection.
+Xamarin is an open source platform for building high-performance iOS, Android, and Windows applications with .NET. It acts as an abstraction layer that manages shared code alongside the underlying platform code, running inside a managed environment that handles memory allocation and garbage collection.
 
 ## How it works?
 
-In this diagram we show the general architecture of a Xamarin multi platform application. Xamarin lets the developers to write a native GUI for every platform and write the logic in C# that will be shared with all the platforms. In most of the cases, with Xamarin, we can share the 80% of the code of the application. Xamarin is added to .NET that automatically controls memory assignation and does the interoperability between the platforms.
+In this diagram we show the general architecture of a Xamarin multi platform application. Xamarin lets developers write a native GUI for each platform while sharing the business logic in C#. In most cases, around 80% of the code can be shared. .NET handles memory allocation and platform interoperability automatically.
 
 {{< image src="/posts/img/xamarin/platform.png" alt="Xamarin Platform" position="center" style="border-radius: 8px;height: 250px;">}}
 
@@ -62,7 +62,7 @@ with open(out_file, "wb") as decompressed_file:
     print("[i] File [" + out_file + "] was created as result!")
 ```
 
-You can use it using the following format:  `python3 [de-lz4.py](http://de-lz4.py) {PATH_TO_DLL}`. A file with the suffix `_out.dll` will be added to the same path.
+Run it with: `python3 de-lz4.py {PATH_TO_DLL}`. A file with the suffix `_out.dll` will be written to the same directory.
 
 ## Decompiling .NET code
 

@@ -1,1 +1,116 @@
-.logo__cursor{background:#2498a3}
+/* ── Accent palette ──────────────────────────────────────── */
+:root {
+  --accent:     #38bdf8;
+  --accent-dim: rgba(56, 189, 248, 0.12);
+  --accent-mid: rgba(56, 189, 248, 0.30);
+}
+
+/* ── Logo cursor ─────────────────────────────────────────── */
+.logo__cursor { background: var(--accent) !important; }
+
+/* ── Text selection ──────────────────────────────────────── */
+::selection {
+  background: var(--accent-dim);
+  color: inherit;
+}
+
+/* ── Scrollbar (Webkit) ──────────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--accent-mid);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ── Post content links ──────────────────────────────────── */
+.post-content a,
+.post p a,
+.post li a,
+.post blockquote a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-mid);
+  transition: border-color 0.2s ease;
+}
+
+.post-content a:hover,
+.post p a:hover,
+.post li a:hover,
+.post blockquote a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ── Post title link hover (listing page) ────────────────── */
+.post-title a:hover,
+.archive__post-title a:hover {
+  color: var(--accent) !important;
+}
+
+/* ── Menu link hover ─────────────────────────────────────── */
+.menu a:hover {
+  color: var(--accent) !important;
+}
+
+/* ── Heading anchor hover ────────────────────────────────── */
+.h-anchor:hover { color: var(--accent) !important; }
+
+/* ── Blockquote ──────────────────────────────────────────── */
+blockquote {
+  border-left: 3px solid var(--accent) !important;
+  padding-left: 1.25em;
+}
+
+/* ── Inline code ─────────────────────────────────────────── */
+code, kbd {
+  background: var(--accent-dim) !important;
+  color: var(--accent) !important;
+}
+
+/* reset code inside pre — don't colorise syntax tokens */
+pre code, pre kbd {
+  background: transparent !important;
+  color: #ccc !important;
+}
+
+/* ── Code block accent bar ───────────────────────────────── */
+pre {
+  border-top: 2px solid var(--accent) !important;
+  border-radius: 0 0 8px 8px !important;
+}
+
+/* ── Table header accent ─────────────────────────────────── */
+th {
+  background: var(--accent-dim) !important;
+  color: var(--accent) !important;
+  border-color: var(--accent-mid) !important;
+}
+
+/* ── Horizontal rule ─────────────────────────────────────── */
+hr {
+  background: linear-gradient(
+    to right,
+    var(--accent),
+    var(--accent-mid),
+    transparent
+  ) !important;
+  height: 1px;
+}
+
+/* ── Focus ring ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Post meta (date / reading time) ────────────────────── */
+.post-meta {
+  opacity: .7;
+  font-size: .875rem;
+}
+
+/* ── Theme toggle hover ──────────────────────────────────── */
+.theme-toggle:hover svg {
+  color: var(--accent);
+}
