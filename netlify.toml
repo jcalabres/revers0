@@ -1,8 +1,8 @@
 [build]
   command = "hugo --enableGitInfo"
-  context = "production"
-  publish = "public/"
+  publish = "public"
 
-[context.production.environment]
-  HUGO_VERSION = "0.93.0"
+[build.environment]
+  HUGO_VERSION = "0.121.0"
   HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
