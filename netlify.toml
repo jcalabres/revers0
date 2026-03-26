@@ -1,5 +1,5 @@
 [build]
-  command = "hugo --enableGitInfo"
+  command = "hugo"
   publish = "public"
 
 [build.environment]
